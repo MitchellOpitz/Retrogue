@@ -2765,6 +2765,22 @@ PrefabInstance:
       propertyPath: TypeAPrefab
       value: 
       objectReference: {fileID: 4542503766583391398, guid: 967016e055a48f346940dcbdfa776c40, type: 3}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: TypeBPrefab
+      value: 
+      objectReference: {fileID: 4542503766583391398, guid: 836122c2b22e519468e67f581134c042, type: 3}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4892544543319136611, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: m_Name
       value: EnemySpawner

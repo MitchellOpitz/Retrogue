@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyType[] enemyTypes;
     public GameObject TypeAPrefab;
+    public GameObject TypeBPrefab;
 
     private bool isSpawning = false;
     private EnemyManager enemyManager; // Reference to the EnemyManager script
@@ -77,10 +78,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnTypeB()
     {
-        // Implement logic to spawn and position TypeB enemy
-        // For example:
-        // Instantiate(typeBPrefab, spawnPosition, Quaternion.identity);
-        Debug.Log("Spawning type B.");
+        SpawnDirection randomDirection = (SpawnDirection)Random.Range(0, System.Enum.GetValues(typeof(SpawnDirection)).Length);
+        Vector2 spawnLocation = GetRandomSpawnLocation(randomDirection);
+
+        GameObject enemyObject = Instantiate(TypeBPrefab, spawnLocation, Quaternion.identity);
+        EnemyTypeB enemy = enemyObject.GetComponent<EnemyTypeB>();
+
+        enemy.SetSpawnDirection(randomDirection);
     }
 
     private Vector2 GetRandomSpawnLocation(SpawnDirection direction)
