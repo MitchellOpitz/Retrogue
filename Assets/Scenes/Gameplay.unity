@@ -1108,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  playAreaClamp: {fileID: 1526686431}
 --- !u!1 &1191636067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,6 +1608,7 @@ GameObject:
   - component: {fileID: 1526686428}
   - component: {fileID: 1526686427}
   - component: {fileID: 1526686430}
+  - component: {fileID: 1526686431}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1701,6 +1703,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1090881491}
+  playAreaClamp: {fileID: 1526686431}
+--- !u!114 &1526686431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526686426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff22320210e1b314e8c7510b781f68d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minClamp: {x: -7.65, y: -5.36}
+  maxClamp: {x: 10.09, y: 6.84}
+  showClampArea: 1
 --- !u!114 &1923825276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1106377976289041128, guid: f944ea0ba1ed56c46b74248672fd0f64, type: 3}
