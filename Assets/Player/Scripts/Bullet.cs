@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;       // Speed of the bullet
     public float destroyDistance = 5f; // Distance at which the bullet should be destroyed
     public float bufferDistance = 5f; // Set the buffer distance
+    public int damage = 20; // Damage dealt by the bullet
 
     private PlayAreaClamp clamp; // Reference to the PlayAreaClamp script
 
@@ -38,4 +39,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
+            Destroy(gameObject);
+        }
+    }
 }
