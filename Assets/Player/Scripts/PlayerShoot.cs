@@ -5,9 +5,18 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;    // Bullet prefab to instantiate
     public Transform firePoint;        // Reference to the firepoint GameObject
-    public float shootInterval = 0.2f; // Interval between shots in seconds
+    public float baseShootSpeed = 0.2f; // Interval between shots in seconds
+   
+    public float shootMultiplier = 0;
+    private float shootInterval;
 
     private bool isShooting = false;
+
+    private void Start()
+    {
+        shootInterval = baseShootSpeed;
+        shootMultiplier = 0;
+    }
 
     private void Update()
     {
@@ -66,4 +75,12 @@ public class PlayerShoot : MonoBehaviour
         // Instantiate bullet at the firepoint's position and rotation
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
+
+    public void UpdateMultiplier(float multiplier)
+    {
+        shootMultiplier = multiplier;
+        shootInterval = baseShootSpeed * (1 - shootMultiplier); // 10% faster per upgrade level
+        Debug.Log("New shoot speed: " + shootInterval);
+    }
+
 }
