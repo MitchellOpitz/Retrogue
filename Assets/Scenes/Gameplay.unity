@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minClamp: {x: -14.58, y: -9.4}
-  maxClamp: {x: 15.03, y: 8.98}
+  maxClamp: {x: 15.03, y: 9.7}
   showClampArea: 1
 --- !u!114 &1526686432
 MonoBehaviour:
@@ -2776,12 +2776,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4542503766583391398, guid: 836122c2b22e519468e67f581134c042, type: 3}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: TypeCPrefab
+      value: 
+      objectReference: {fileID: 4542503766583391398, guid: 0f6534aea4d55934591d6860e9a55d0a, type: 3}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: TypeDPrefab
+      value: 
+      objectReference: {fileID: 4542503766583391398, guid: ef50cc2dcee6b13498b966fda0186e35, type: 3}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.size
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[1]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
+      propertyPath: enemyTypes.Array.data[3]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4892544543319136611, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: m_Name

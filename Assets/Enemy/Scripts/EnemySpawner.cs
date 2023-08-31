@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
     public EnemyType[] enemyTypes;
     public GameObject TypeAPrefab;
     public GameObject TypeBPrefab;
+    public GameObject TypeCPrefab;
+    public GameObject TypeDPrefab;
 
     private bool isSpawning = false;
     private EnemyManager enemyManager; // Reference to the EnemyManager script
@@ -47,14 +49,36 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(EnemyType enemyType)
     {
+        SpawnDirection randomDirection = (SpawnDirection)Random.Range(0, System.Enum.GetValues(typeof(SpawnDirection)).Length);
+        Vector2 spawnLocation = GetRandomSpawnLocation(randomDirection);
+
+        GameObject enemyObject = null;
+
         switch (enemyType)
         {
             case EnemyType.TypeA:
-                SpawnTypeA();
+                enemyObject = Instantiate(TypeAPrefab, spawnLocation, Quaternion.identity);
+                EnemyTypeA enemyA = enemyObject.GetComponent<EnemyTypeA>();
+                enemyA.SetSpawnDirection(randomDirection);
                 break;
 
             case EnemyType.TypeB:
-                SpawnTypeB();
+                enemyObject = Instantiate(TypeBPrefab, spawnLocation, Quaternion.identity);
+                EnemyTypeB enemyB = enemyObject.GetComponent<EnemyTypeB>();
+                enemyB.SetSpawnDirection(randomDirection);
+                break;
+
+            case EnemyType.TypeC:
+                enemyObject = Instantiate(TypeCPrefab, spawnLocation, Quaternion.identity);
+                EnemyTypeC enemyC = enemyObject.GetComponent<EnemyTypeC>();
+                enemyC.SetSpawnDirection(randomDirection);
+                break;
+
+            case EnemyType.TypeD:
+                enemyObject = Instantiate(TypeDPrefab, spawnLocation, Quaternion.identity);
+                EnemyTypeD enemyD = enemyObject.GetComponent<EnemyTypeD>();
+                enemyD.SetSpawnDirection(randomDirection);
+                enemyD.AdjustSpawnPosition();
                 break;
 
             // Add cases for other enemy types as needed
@@ -63,28 +87,6 @@ public class EnemySpawner : MonoBehaviour
                 Debug.LogWarning($"Unknown enemy type: {enemyType}");
                 break;
         }
-    }
-
-    public void SpawnTypeA()
-    {
-        SpawnDirection randomDirection = (SpawnDirection)Random.Range(0, System.Enum.GetValues(typeof(SpawnDirection)).Length);
-        Vector2 spawnLocation = GetRandomSpawnLocation(randomDirection);
-
-        GameObject enemyObject = Instantiate(TypeAPrefab, spawnLocation, Quaternion.identity);
-        EnemyTypeA enemy = enemyObject.GetComponent<EnemyTypeA>();
-
-        enemy.SetSpawnDirection(randomDirection);
-    }
-
-    private void SpawnTypeB()
-    {
-        SpawnDirection randomDirection = (SpawnDirection)Random.Range(0, System.Enum.GetValues(typeof(SpawnDirection)).Length);
-        Vector2 spawnLocation = GetRandomSpawnLocation(randomDirection);
-
-        GameObject enemyObject = Instantiate(TypeBPrefab, spawnLocation, Quaternion.identity);
-        EnemyTypeB enemy = enemyObject.GetComponent<EnemyTypeB>();
-
-        enemy.SetSpawnDirection(randomDirection);
     }
 
     private Vector2 GetRandomSpawnLocation(SpawnDirection direction)
