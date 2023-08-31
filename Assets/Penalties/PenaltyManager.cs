@@ -4,6 +4,8 @@ using UnityEngine;
 public class PenaltyManager : MonoBehaviour
 {
     public List<SpawnPenalty> spawnPenalty = new List<SpawnPenalty>();
+    public List<MoveSpeedPenalty> moveSpeedPenalty = new List<MoveSpeedPenalty>();
+    public List<DamagePenalty> damagePenalty = new List<DamagePenalty>();
 
     public GameObject penaltyPanel1;
     public GameObject penaltyPanel2;
@@ -42,10 +44,10 @@ public class PenaltyManager : MonoBehaviour
                 penalty = spawnPenalty.Find(p => p is SpawnPenalty && !p.CheckMaxTier());
                 break;
             case 2:
-                penalty = spawnPenalty.Find(p => p is SpawnPenalty && !p.CheckMaxTier());
+                penalty = moveSpeedPenalty.Find(p => p is MoveSpeedPenalty && !p.CheckMaxTier());
                 break;
             case 3:
-                penalty = spawnPenalty.Find(p => p is SpawnPenalty && !p.CheckMaxTier());
+                penalty = damagePenalty.Find(p => p is DamagePenalty && !p.CheckMaxTier());
                 break;
         }
 

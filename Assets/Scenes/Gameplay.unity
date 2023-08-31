@@ -2186,6 +2186,18 @@ MonoBehaviour:
     currentTier: 0
     maxTier: 10
     enemyType: 0
+  moveSpeedPenalty:
+  - name: Move Speed Up
+    description: 
+    currentTier: 0
+    maxTier: 10
+    enemyType: 0
+  damagePenalty:
+  - name: Damage Up
+    description: 
+    currentTier: 0
+    maxTier: 10
+    enemyType: 0
   penaltyPanel1: {fileID: 1675433127}
   penaltyPanel2: {fileID: 32908086}
   penaltyPanel3: {fileID: 737009333}
