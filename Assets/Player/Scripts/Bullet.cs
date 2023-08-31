@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     private int damage;
     private float damageMultiplier;
 
-    private UpgradeManager upgradeManager;
     private PlayerManager playerManager;
     private PlayAreaClamp clamp; // Reference to the PlayAreaClamp script
 
@@ -17,11 +16,8 @@ public class Bullet : MonoBehaviour
     {
         // Find the PlayAreaClamp script in the scene
         clamp = FindObjectOfType<PlayAreaClamp>();
-        upgradeManager = FindObjectOfType<UpgradeManager>();
         playerManager = FindObjectOfType<PlayerManager>();
-        damage = playerManager.baseDamage;
-        damageMultiplier = upgradeManager.damageMultiplier;
-        damage = Mathf.RoundToInt(damage * (1 + upgradeManager.damageMultiplier));
+        damage = Mathf.RoundToInt(playerManager.baseDamage * (1 + playerManager.damageMultiplier));
         Debug.Log("Damage: " + damage);
     }
 

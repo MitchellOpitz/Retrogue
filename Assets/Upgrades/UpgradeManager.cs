@@ -11,12 +11,9 @@ public class UpgradeManager : MonoBehaviour
     public GameObject upgradePanel2;
     public GameObject upgradePanel3;
 
-    public float damageMultiplier = 0;
-
     private void Start()
     {
         TogglePanels(false);
-        damageMultiplier = 0;
     }
 
     public void SelectUpgrades()

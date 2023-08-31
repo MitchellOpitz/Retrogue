@@ -2344,7 +2344,6 @@ MonoBehaviour:
   upgradePanel1: {fileID: 1830364727}
   upgradePanel2: {fileID: 178884898}
   upgradePanel3: {fileID: 1371654276}
-  damageMultiplier: 0
 --- !u!1 &1323531955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5325,6 +5324,10 @@ PrefabInstance:
     - target: {fileID: 3121856623272650392, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648978089460105722, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: baseDamage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5070339232648270315, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: m_Name

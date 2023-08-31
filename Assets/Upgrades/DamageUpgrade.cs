@@ -8,9 +8,8 @@ public class DamageUpgrade : Upgrade
     {
         // Apply fire speed-related upgrade effect
         currentTier++;
-        UpgradeManager upgradeManager = GameObject.FindObjectOfType<UpgradeManager>();
-        upgradeManager.damageMultiplier = currentTier * 0.1f;
-
+        PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+        playerManager.damageMultiplier = currentTier * 0.1f;
     }
 
     public override bool CheckMaxTier()
@@ -21,11 +20,10 @@ public class DamageUpgrade : Upgrade
 
     private void UpdateDescription()
     {
-        UpgradeManager upgradeManager = GameObject.FindObjectOfType<UpgradeManager>();
         PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
 
         string percentUpgrade = ((currentTier + 1) * 10).ToString();
-        int damageAmount = Mathf.RoundToInt(playerManager.baseDamage * (1 + (upgradeManager.damageMultiplier + .1f)));
+        int damageAmount = Mathf.RoundToInt(playerManager.baseDamage * (1 + (playerManager.damageMultiplier + .1f)));
         description = "Increase base damage by " + percentUpgrade + "%.  \nNew damage amount: " + damageAmount;
     }
 }
