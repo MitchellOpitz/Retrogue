@@ -3,11 +3,24 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Enemy Types to Spawn")]
     public EnemyType[] enemyTypes;
+
+    [Header("Enemy Type A")]
     public GameObject TypeAPrefab;
+    public float TypeABaseSpawnRate;
+
+    [Header("Enemy Type B")]
     public GameObject TypeBPrefab;
+    public float TypeBBaseSpawnRate;
+
+    [Header("Enemy Type C")]
     public GameObject TypeCPrefab;
+    public float TypeCBaseSpawnRate;
+
+    [Header("Enemy Type D")]
     public GameObject TypeDPrefab;
+    public float TypeDBaseSpawnRate;
 
     private bool isSpawning = false;
     private EnemyManager enemyManager; // Reference to the EnemyManager script
@@ -26,7 +39,23 @@ public class EnemySpawner : MonoBehaviour
             isSpawning = true;
             foreach (EnemyType enemyType in enemyTypes)
             {
-                float spawnInterval = enemyManager.GetSpawnInterval(enemyType);
+                float spawnInterval = 0f;
+
+                switch (enemyType)
+                {
+                    case EnemyType.TypeA:
+                        spawnInterval = TypeABaseSpawnRate;
+                        break;
+                    case EnemyType.TypeB:
+                        spawnInterval = TypeBBaseSpawnRate;
+                        break;
+                    case EnemyType.TypeC:
+                        spawnInterval = TypeCBaseSpawnRate;
+                        break;
+                    case EnemyType.TypeD:
+                        spawnInterval = TypeDBaseSpawnRate;
+                        break;
+                }
                 StartCoroutine(SpawnEnemies(enemyType, spawnInterval));
             }
         }
