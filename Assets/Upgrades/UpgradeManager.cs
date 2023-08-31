@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public List<DamageUpgrade> damageUpgrades = new List<DamageUpgrade>();
+    public List<DamageUpgrade> damageUpgrade = new List<DamageUpgrade>();
+    public List<FireSpeedUpgrade> fireSpeedUpgrade = new List<FireSpeedUpgrade>();
+    public List<HealthUpgrade> healthUpgrade = new List<HealthUpgrade>();
 
     public GameObject upgradePanel1;
     public GameObject upgradePanel2;
@@ -20,16 +22,37 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < 3; i++) // Choose 3 upgrades
         {
             Upgrade randomUpgrade = GetRandomUpgrade();
+            while (randomUpgrade == null)
+            {
+                randomUpgrade = GetRandomUpgrade();
+            }
             selectedUpgrades.Add(randomUpgrade);
         }
 
         DisplayUpgrades(selectedUpgrades);
     }
-
     private Upgrade GetRandomUpgrade()
     {
-        return damageUpgrades[Random.Range(0, damageUpgrades.Count)];
+        int randomNumber = Random.Range(1, 4); // Generate a random number between 1 and 3
+
+        Upgrade upgrade = null;
+
+        switch (randomNumber)
+        {
+            case 1:
+                upgrade = damageUpgrade.Find(u => u is DamageUpgrade && !u.CheckMaxTier());
+                break;
+            case 2:
+                upgrade = fireSpeedUpgrade.Find(u => u is FireSpeedUpgrade && !u.CheckMaxTier());
+                break;
+            case 3:
+                upgrade = healthUpgrade.Find(u => u is HealthUpgrade && !u.CheckMaxTier());
+                break;
+        }
+
+        return upgrade;
     }
+
 
     private void DisplayUpgrades(List<Upgrade> upgrades)
     {
@@ -49,6 +72,7 @@ public class UpgradeManager : MonoBehaviour
 
             // Attach an event listener to the button to call the ApplyUpgradeEffect method
             int index = i; // Capture the value to avoid closures issues
+            activateButton.onClick.RemoveAllListeners();
             activateButton.onClick.AddListener(() => ApplyUpgradeEffect(upgrades[index]));
         }
     }

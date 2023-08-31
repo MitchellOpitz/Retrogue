@@ -1,11 +1,11 @@
 [System.Serializable]
-public class Upgrade
+public abstract class Upgrade
 {
     public string name;
     public string description;
+    public int currentTier;
+    public int maxTier;
 
-    public virtual void ApplyUpgradeEffect()
-    {
-        // Default implementation or leave it empty
-    }
+    public abstract void ApplyUpgradeEffect();
+    public abstract bool CheckMaxTier(); // Implement this method in each derived upgrade class
 }
