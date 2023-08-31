@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class DamageUpgrade : Upgrade
 {
+
     public override void ApplyUpgradeEffect()
     {
         // Apply fire speed-related upgrade effect
@@ -20,6 +21,10 @@ public class DamageUpgrade : Upgrade
 
     private void UpdateDescription()
     {
-        description = "Increase base damage by " + ((currentTier + 1) * 10) + "%.";
+        UpgradeManager upgradeManager = GameObject.FindObjectOfType<UpgradeManager>();
+
+        string percentUpgrade = ((currentTier + 1) * 10).ToString();
+        int damageAmount = Mathf.RoundToInt(20 * (1 + (upgradeManager.damageMultiplier + .1f)));
+        description = "Increase base damage by " + percentUpgrade + "%.  \nNew damage amount: " + damageAmount;
     }
 }
