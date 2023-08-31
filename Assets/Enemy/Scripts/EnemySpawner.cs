@@ -3,24 +3,7 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Enemy Types to Spawn")]
     public EnemyType[] enemyTypes;
-
-    [Header("Enemy Type A")]
-    public GameObject TypeAPrefab;
-    public float TypeABaseSpawnRate;
-
-    [Header("Enemy Type B")]
-    public GameObject TypeBPrefab;
-    public float TypeBBaseSpawnRate;
-
-    [Header("Enemy Type C")]
-    public GameObject TypeCPrefab;
-    public float TypeCBaseSpawnRate;
-
-    [Header("Enemy Type D")]
-    public GameObject TypeDPrefab;
-    public float TypeDBaseSpawnRate;
 
     private bool isSpawning = false;
     private EnemyManager enemyManager; // Reference to the EnemyManager script
@@ -39,23 +22,7 @@ public class EnemySpawner : MonoBehaviour
             isSpawning = true;
             foreach (EnemyType enemyType in enemyTypes)
             {
-                float spawnInterval = 0f;
-
-                switch (enemyType)
-                {
-                    case EnemyType.TypeA:
-                        spawnInterval = TypeABaseSpawnRate;
-                        break;
-                    case EnemyType.TypeB:
-                        spawnInterval = TypeBBaseSpawnRate;
-                        break;
-                    case EnemyType.TypeC:
-                        spawnInterval = TypeCBaseSpawnRate;
-                        break;
-                    case EnemyType.TypeD:
-                        spawnInterval = TypeDBaseSpawnRate;
-                        break;
-                }
+                float spawnInterval = enemyManager.GetSpawnInterval(enemyType);
                 StartCoroutine(SpawnEnemies(enemyType, spawnInterval));
             }
         }
@@ -81,42 +48,51 @@ public class EnemySpawner : MonoBehaviour
         SpawnDirection randomDirection = (SpawnDirection)Random.Range(0, System.Enum.GetValues(typeof(SpawnDirection)).Length);
         Vector2 spawnLocation = GetRandomSpawnLocation(randomDirection);
 
-        GameObject enemyObject = null;
-
-        switch (enemyType)
+        GameObject enemyPrefab = enemyManager.GetEnemyPrefab(enemyType);
+        if (enemyPrefab != null)
         {
-            case EnemyType.TypeA:
-                enemyObject = Instantiate(TypeAPrefab, spawnLocation, Quaternion.identity);
-                EnemyTypeA enemyA = enemyObject.GetComponent<EnemyTypeA>();
-                enemyA.SetSpawnDirection(randomDirection);
-                break;
+            GameObject enemyObject = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
+            Component enemyComponent = null;
 
-            case EnemyType.TypeB:
-                enemyObject = Instantiate(TypeBPrefab, spawnLocation, Quaternion.identity);
-                EnemyTypeB enemyB = enemyObject.GetComponent<EnemyTypeB>();
-                enemyB.SetSpawnDirection(randomDirection);
-                break;
+            switch (enemyType)
+            {
+                case EnemyType.TypeA:
+                    enemyComponent = enemyObject.GetComponent<EnemyTypeA>();
+                    break;
+                case EnemyType.TypeB:
+                    enemyComponent = enemyObject.GetComponent<EnemyTypeB>();
+                    break;
+                case EnemyType.TypeC:
+                    enemyComponent = enemyObject.GetComponent<EnemyTypeC>();
+                    break;
+                case EnemyType.TypeD:
+                    enemyComponent = enemyObject.GetComponent<EnemyTypeD>();
+                    break;
+                // Add cases for other enemy types as needed
+                default:
+                    Debug.LogWarning($"Unknown enemy type: {enemyType}");
+                    break;
+            }
 
-            case EnemyType.TypeC:
-                enemyObject = Instantiate(TypeCPrefab, spawnLocation, Quaternion.identity);
-                EnemyTypeC enemyC = enemyObject.GetComponent<EnemyTypeC>();
-                enemyC.SetSpawnDirection(randomDirection);
-                break;
-
-            case EnemyType.TypeD:
-                enemyObject = Instantiate(TypeDPrefab, spawnLocation, Quaternion.identity);
-                EnemyTypeD enemyD = enemyObject.GetComponent<EnemyTypeD>();
-                enemyD.SetSpawnDirection(randomDirection);
-                enemyD.AdjustSpawnPosition();
-                break;
-
-            // Add cases for other enemy types as needed
-
-            default:
-                Debug.LogWarning($"Unknown enemy type: {enemyType}");
-                break;
+            if (enemyComponent != null)
+            {
+                if (enemyComponent is EnemyTypeD)
+                {
+                    ((EnemyTypeD)enemyComponent).AdjustSpawnPosition();
+                }
+                enemyComponent.SendMessage("SetSpawnDirection", randomDirection, SendMessageOptions.DontRequireReceiver);
+            }
+            else
+            {
+                Debug.LogWarning($"Enemy component not found for type: {enemyType}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Prefab not found for enemy type: {enemyType}");
         }
     }
+
 
     private Vector2 GetRandomSpawnLocation(SpawnDirection direction)
     {
@@ -144,5 +120,4 @@ public class EnemySpawner : MonoBehaviour
 
         return new Vector2(spawnX, spawnY);
     }
-
 }
