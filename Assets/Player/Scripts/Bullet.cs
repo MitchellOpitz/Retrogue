@@ -7,12 +7,18 @@ public class Bullet : MonoBehaviour
     public float bufferDistance = 5f; // Set the buffer distance
     public int damage = 20; // Damage dealt by the bullet
 
+    private UpgradeManager upgradeManager;
+    private float damageMultiplier;
     private PlayAreaClamp clamp; // Reference to the PlayAreaClamp script
 
     private void Start()
     {
         // Find the PlayAreaClamp script in the scene
         clamp = FindObjectOfType<PlayAreaClamp>();
+        upgradeManager = FindObjectOfType<UpgradeManager>();
+        damageMultiplier = upgradeManager.damageMultiplier;
+        damage = Mathf.RoundToInt(damage * (1 + upgradeManager.damageMultiplier));
+        Debug.Log("Damage: " + damage);
     }
 
     private void Update()

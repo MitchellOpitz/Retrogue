@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class DamageUpgrade : Upgrade
 {
@@ -5,6 +7,9 @@ public class DamageUpgrade : Upgrade
     {
         // Apply fire speed-related upgrade effect
         currentTier++;
+        UpgradeManager upgradeManager = GameObject.FindObjectOfType<UpgradeManager>();
+        upgradeManager.damageMultiplier = currentTier * 0.1f;
+
     }
 
     public override bool CheckMaxTier()
