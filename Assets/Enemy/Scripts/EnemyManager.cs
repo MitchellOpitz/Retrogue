@@ -8,6 +8,9 @@ public class EnemyManager : MonoBehaviour
     private List<EnemyTypeProperties> enemyTypePropertiesList = new List<EnemyTypeProperties>();
 
     private Dictionary<EnemyType, EnemyTypeProperties> enemyTypePropertiesDict;
+    private ScoreManager scoreManager;
+    private Player player;
+    private EnemySpawner enemySpawner;
 
     private void Awake()
     {
@@ -16,6 +19,9 @@ public class EnemyManager : MonoBehaviour
         {
             enemyTypePropertiesDict.Add(properties.enemyType, properties);
         }
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        player = FindAnyObjectByType<Player>();
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     public float GetSpawnInterval(EnemyType enemyType)
@@ -76,4 +82,36 @@ public class EnemyManager : MonoBehaviour
             return 0;
         }
     }
+    public int GetXP(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            int baseXP = properties.baseXP;
+            int xpMultiplier = properties.xpMultiplier;
+            int calculatedXP = Mathf.RoundToInt(baseXP * xpMultiplier);
+            return calculatedXP;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+        }
+    }
+
+    public void DestroyAllEnemies()
+    {
+        scoreManager.ToggleCanScore(false); // Turn off scoring
+        player.ToggleXPGain(false);
+        enemySpawner.StopSpawner();
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.DestroyEnemy();
+        }
+
+        scoreManager.ToggleCanScore(true); // Turn on scoring
+        player.ToggleXPGain(true);
+    }
+
 }

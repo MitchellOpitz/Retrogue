@@ -9,4 +9,6 @@ public class EnemyTypeProperties
     public float spawnMultiplier;
     public int baseScore;
     public int scoreMultiplier;
+    public int baseXP;
+    public int xpMultiplier;
 }

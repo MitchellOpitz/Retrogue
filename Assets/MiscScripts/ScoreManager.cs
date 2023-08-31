@@ -12,10 +12,12 @@ public class ScoreManager : MonoBehaviour
     private TextMeshProUGUI scoreText; // Reference to the TMPro text field
 
     private int score;
+    private bool canScore;
 
     private void Start()
     {
         score = 0;
+        canScore = true;
 
         if (enemyManager == null)
         {
@@ -30,7 +32,15 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScore(EnemyType enemyType)
     {
-        score += enemyManager.GetScore(enemyType);
-        scoreText.text = $"Score: {score}";
+        if (canScore)
+        {
+            score += enemyManager.GetScore(enemyType);
+            scoreText.text = $"Score: {score}";
+        }
+    }
+
+    public void ToggleCanScore(bool value)
+    {
+        canScore = value;
     }
 }
