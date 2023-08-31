@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class PlayerExp : MonoBehaviour
 {
     public TextMeshProUGUI xpText;
     public int baseXPToLevel = 20;

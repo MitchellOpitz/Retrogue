@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     private int currentHealth;   // Current health of the enemy
     private ScoreManager scoreManager;
-    private Player player;
+    private PlayerExp playerExp;
     protected PlayAreaClamp playAreaClamp; // Reference to the PlayAreaClamp script
     protected SpawnDirection spawnDirection;
 
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         // Find the PlayAreaClamp script in the scene
         playAreaClamp = FindObjectOfType<PlayAreaClamp>();
         scoreManager = FindObjectOfType<ScoreManager>();
-        player = FindAnyObjectByType<Player>();
+        playerExp = FindAnyObjectByType<PlayerExp>();
     }
 
     private void Start()
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         // Perform death behavior based on enemyType (e.g., play death animation, drop items, etc.)
         scoreManager.UpdateScore(enemyType);
-        player.GainXP(enemyType);
+        playerExp.GainXP(enemyType);
         Destroy(gameObject); // Destroy the enemy GameObject
     }
 
