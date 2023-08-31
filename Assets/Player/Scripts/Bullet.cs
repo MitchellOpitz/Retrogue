@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
         clamp = FindObjectOfType<PlayAreaClamp>();
         playerManager = FindObjectOfType<PlayerManager>();
         damage = Mathf.RoundToInt(playerManager.baseDamage * (1 + playerManager.damageMultiplier));
-        Debug.Log("Damage: " + damage);
     }
 
     private void Update()

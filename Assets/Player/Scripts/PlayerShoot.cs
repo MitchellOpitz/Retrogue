@@ -80,7 +80,6 @@ public class PlayerShoot : MonoBehaviour
     {
         shootMultiplier = multiplier;
         shootInterval = baseShootSpeed * (1 - shootMultiplier); // 10% faster per upgrade level
-        Debug.Log("New shoot speed: " + shootInterval);
     }
 
 }
