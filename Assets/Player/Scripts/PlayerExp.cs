@@ -12,7 +12,7 @@ public class PlayerExp : MonoBehaviour
     private float levelUpExponent = 1.5f;
     private bool canGainXP;
 
-    private UpgradeManager upgradeManager;
+    private PenaltyManager penaltyManager;
     private EnemyManager enemyManager;
 
     private void Start()
@@ -23,7 +23,7 @@ public class PlayerExp : MonoBehaviour
         CalculateXPToLevel();
 
         enemyManager = FindObjectOfType<EnemyManager>();
-        upgradeManager = FindObjectOfType<UpgradeManager>();
+        penaltyManager = FindObjectOfType<PenaltyManager>();
     }
 
     public void GainXP(EnemyType enemyType)
@@ -49,7 +49,7 @@ public class PlayerExp : MonoBehaviour
             currentXP = 0;
             CalculateXPToLevel();
             enemyManager.DestroyAllEnemies();
-            upgradeManager.StartUpgrades();
+            penaltyManager.StartPenalties();
         }
     }
 
