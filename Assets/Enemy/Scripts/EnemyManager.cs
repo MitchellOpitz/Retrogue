@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
 
     private Dictionary<EnemyType, EnemyTypeProperties> enemyTypePropertiesDict;
     private ScoreManager scoreManager;
-    private Player player;
+    private PlayerExp playerExp;
     private EnemySpawner enemySpawner;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
             enemyTypePropertiesDict.Add(properties.enemyType, properties);
         }
         scoreManager = FindAnyObjectByType<ScoreManager>();
-        player = FindAnyObjectByType<Player>();
+        playerExp = FindAnyObjectByType<PlayerExp>();
         enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
 
@@ -101,7 +101,7 @@ public class EnemyManager : MonoBehaviour
     public void DestroyAllEnemies()
     {
         scoreManager.ToggleCanScore(false); // Turn off scoring
-        player.ToggleXPGain(false);
+        playerExp.ToggleXPGain(false);
         enemySpawner.StopSpawner();
 
         Enemy[] enemies = FindObjectsOfType<Enemy>();
@@ -111,7 +111,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         scoreManager.ToggleCanScore(true); // Turn on scoring
-        player.ToggleXPGain(true);
+        playerExp.ToggleXPGain(true);
     }
 
 }

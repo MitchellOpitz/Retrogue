@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 5771432905023248647}
   - component: {fileID: 2813035577844310955}
   - component: {fileID: 2595990643641256794}
+  - component: {fileID: 7179691398405532661}
+  - component: {fileID: 3648978089460105722}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -59,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 5070339232648270315}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20, y: 12.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -146,3 +148,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 25264317067131114, guid: 13c358c4773453f4f8f3462dd81c47db, type: 3}
   firePoint: {fileID: 2629352740973198061}
+  shootInterval: 0.2
+--- !u!114 &7179691398405532661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070339232648270315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3266eb15d749784e824b05bbd9393d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpText: {fileID: 0}
+  baseXPToLevel: 20
+--- !u!114 &3648978089460105722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070339232648270315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce3477311da72243954d0a9eea1a5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 20
