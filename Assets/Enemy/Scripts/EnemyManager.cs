@@ -60,4 +60,20 @@ public class EnemyManager : MonoBehaviour
             return null; // Return null or handle this case as needed
         }
     }
+
+    public int GetScore(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            int baseScore = properties.baseScore;
+            float scoreMultiplier = properties.scoreMultiplier; // Get the score multiplier from EnemyTypeProperties
+            int calculatedScore = Mathf.RoundToInt(baseScore * scoreMultiplier);
+            return calculatedScore;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+        }
+    }
 }

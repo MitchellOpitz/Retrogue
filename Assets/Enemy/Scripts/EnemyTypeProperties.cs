@@ -7,4 +7,6 @@ public class EnemyTypeProperties
     public GameObject enemyPrefab;
     public float baseSpawnRate;
     public float spawnMultiplier;
+    public int baseScore;
+    public int scoreMultiplier;
 }

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f; // Movement speed of the enemy
 
     private int currentHealth;   // Current health of the enemy
+    private ScoreManager scoreManager;
     protected PlayAreaClamp playAreaClamp; // Reference to the PlayAreaClamp script
     protected SpawnDirection spawnDirection;
 
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     {
         // Find the PlayAreaClamp script in the scene
         playAreaClamp = FindObjectOfType<PlayAreaClamp>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     private void Start()
@@ -44,6 +46,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         // Perform death behavior based on enemyType (e.g., play death animation, drop items, etc.)
+        scoreManager.UpdateScore(enemyType);
         Destroy(gameObject); // Destroy the enemy GameObject
     }
 
