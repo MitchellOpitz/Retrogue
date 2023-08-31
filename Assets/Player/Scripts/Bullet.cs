@@ -5,10 +5,12 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;       // Speed of the bullet
     public float destroyDistance = 5f; // Distance at which the bullet should be destroyed
     public float bufferDistance = 5f; // Set the buffer distance
-    public int damage = 20; // Damage dealt by the bullet
+    
+    private int damage;
+    private float damageMultiplier;
 
     private UpgradeManager upgradeManager;
-    private float damageMultiplier;
+    private PlayerManager playerManager;
     private PlayAreaClamp clamp; // Reference to the PlayAreaClamp script
 
     private void Start()
@@ -16,6 +18,8 @@ public class Bullet : MonoBehaviour
         // Find the PlayAreaClamp script in the scene
         clamp = FindObjectOfType<PlayAreaClamp>();
         upgradeManager = FindObjectOfType<UpgradeManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
+        damage = playerManager.baseDamage;
         damageMultiplier = upgradeManager.damageMultiplier;
         damage = Mathf.RoundToInt(damage * (1 + upgradeManager.damageMultiplier));
         Debug.Log("Damage: " + damage);
