@@ -90,6 +90,7 @@ public class LevelUpManager : MonoBehaviour
         } else
         {
             penaltyManager.TogglePanels(false);
+            FindObjectOfType<CountdownManager>().StartCountdown();
         }
     }
 }
