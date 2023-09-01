@@ -80,7 +80,7 @@ public class PenaltyManager : MonoBehaviour
     public void ApplyPenaltyEffect(Penalty penalty)
     {
         penalty.ApplyPenaltyEffect();
-        TogglePanels(false);
+        FindObjectOfType<LevelUpManager>().EndPenaltyTransition();
     }
 
     public void StartPenalties()
@@ -89,7 +89,7 @@ public class PenaltyManager : MonoBehaviour
         SelectPenalties();
     }
 
-    private void TogglePanels(bool value)
+    public void TogglePanels(bool value)
     {
         penaltyPanel1.SetActive(value);
         penaltyPanel2.SetActive(value);

@@ -81,7 +81,7 @@ public class UpgradeManager : MonoBehaviour
     public void ApplyUpgradeEffect(Upgrade upgrade)
     {
         upgrade.ApplyUpgradeEffect();
-        TogglePanels(false);
+        FindObjectOfType<LevelUpManager>().EndUpgradeTransition();
     }
 
     public void StartUpgrades()
@@ -90,7 +90,7 @@ public class UpgradeManager : MonoBehaviour
         SelectUpgrades();
     }
 
-    private void TogglePanels(bool value)
+    public void TogglePanels(bool value)
     {
         upgradePanel1.SetActive(value);
         upgradePanel2.SetActive(value);
