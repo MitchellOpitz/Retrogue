@@ -7,7 +7,6 @@ public class AudioDropdownHandler : MonoBehaviour
     private AudioManager audioManager;
     private TMP_Dropdown dropdown;
 
-
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();

@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03e3fdeda3be9d45858ba4819678dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 0}
   sounds:
   - name: 8Bit
-    clip: {fileID: 8300000, guid: 38461e8c270c0b34590fcf8aaa7eda8a, type: 3}
+    clip: {fileID: 8300000, guid: 1e20392344157484191bc906c842f780, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -75,5 +76,4 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  testAudio: 1
   currentAudioTrackIndex: 2
