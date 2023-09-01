@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             enemyManager.DestroyAllEnemies();
+            FindObjectOfType<GameOverManager>().StartGameOver();
             Destroy(gameObject);
         }
     }

@@ -43,4 +43,9 @@ public class ScoreManager : MonoBehaviour
     {
         canScore = value;
     }
+
+    public int GetFinalScore()
+    {
+        return score;
+    }
 }
