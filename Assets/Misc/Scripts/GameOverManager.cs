@@ -18,10 +18,10 @@ public class GameOverManager : MonoBehaviour
     public void StartGameOver()
     {
         // Wait for a few seconds before starting the game over sequence.
-        StartCoroutine(WaitForSeconds(3.0f));
+        StartCoroutine(BeforeText(3.0f));
     }
 
-    IEnumerator WaitForSeconds(float seconds)
+    IEnumerator BeforeText(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         UpdateGameOverText();
@@ -35,5 +35,12 @@ public class GameOverManager : MonoBehaviour
 
         // Show the player's score.
         scoreText.text = "Score: " + scoreManager.GetFinalScore();
+        StartCoroutine(AfterText(3.0f));
+    }
+
+    IEnumerator AfterText(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManagement.instance.LoadSceneByName("Title");
     }
 }
