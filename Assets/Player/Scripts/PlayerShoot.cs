@@ -6,8 +6,9 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bulletPrefab;    // Bullet prefab to instantiate
     public Transform firePoint;        // Reference to the firepoint GameObject
     public float baseShootSpeed = 0.2f; // Interval between shots in seconds
-   
-    public float shootMultiplier = 0;
+    public int multishot;
+
+    public float shotSpeedMultiplier = 0;
     private float shootInterval;
 
     private bool isShooting = false;
@@ -15,7 +16,8 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         shootInterval = baseShootSpeed;
-        shootMultiplier = 0;
+        shotSpeedMultiplier = 0;
+        multishot = 1;
     }
 
     private void Update()
@@ -69,17 +71,53 @@ public class PlayerShoot : MonoBehaviour
             yield return new WaitForSeconds(shootInterval);
         }
     }
+    /*
+    private void Shoot()
+    {
+        // Calculate the total spread angle
+        float totalSpreadAngle = 10f; // Adjust this angle as needed
+        int numberOfShots = multishot; // Get the number of shots from your upgrade
+
+        // Calculate the initial angle, which is half of the total spread angle to ensure it's centered
+        float initialAngle = -totalSpreadAngle / 2f;
+
+        // Calculate the angle step between shots
+        float angleStep = totalSpreadAngle / (numberOfShots - 1);
+
+        // Loop through the number of shots and spawn bullets with adjusted directions
+        for (int i = 0; i < numberOfShots; i++)
+        {
+            // Calculate the angle for the current shot
+            float shotAngle = initialAngle + i * angleStep;
+
+            // Calculate the direction vector based on the shot angle
+            Vector3 shotDirection = Quaternion.Euler(0f, 0f, shotAngle) * Vector3.up;
+
+            // Instantiate bullet at the firepoint's position and add the shot direction
+            Instantiate(bulletPrefab, firePoint.position + shotDirection, Quaternion.identity);
+        }
+    }*/
 
     private void Shoot()
     {
-        // Instantiate bullet at the firepoint's position and rotation
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        for (int i = 0; i < multishot; i++)
+        {
+            // Calculate the spread angle relative to the firePoint's rotation
+            float spreadAngle = -15f + (15f * i);
+
+            // Calculate the rotation for the current bullet
+            Quaternion spreadRotation = Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z + spreadAngle);
+
+            // Instantiate the bullet at the firePoint's position with the adjusted rotation
+            GameObject projectile = Instantiate(bulletPrefab, firePoint.position, spreadRotation);
+        }
     }
+
 
     public void UpdateMultiplier(float multiplier)
     {
-        shootMultiplier = multiplier;
-        shootInterval = baseShootSpeed * (1 - shootMultiplier); // 10% faster per upgrade level
+        shotSpeedMultiplier = multiplier;
+        shootInterval = baseShootSpeed * (1 - shotSpeedMultiplier); // 10% faster per upgrade level
     }
 
 }

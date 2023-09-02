@@ -4432,6 +4432,11 @@ MonoBehaviour:
   - name: Crit Up
     description: This is the crit description.
     currentTier: 0
+    maxTier: 0
+  multishotUpgrade:
+  - name: Multishot Up
+    description: This is the multishot description.
+    currentTier: 0
     maxTier: 10
   upgradePanel1: {fileID: 1830364727}
   upgradePanel2: {fileID: 178884898}

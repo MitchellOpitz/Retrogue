@@ -1,15 +1,15 @@
 using UnityEngine;
 
 [System.Serializable]
-public class FireSpeedUpgrade : Upgrade
+public class MultishotUpgrade : Upgrade
 {
+
     public override void ApplyUpgradeEffect()
     {
         // Apply fire speed-related upgrade effect
         currentTier++;
         PlayerShoot playerShoot = GameObject.FindObjectOfType<PlayerShoot>();
-        playerShoot.UpdateMultiplier(currentTier * 0.1f);
-
+        playerShoot.multishot++;
     }
 
     public override bool CheckMaxTier()
@@ -22,10 +22,7 @@ public class FireSpeedUpgrade : Upgrade
     {
         PlayerShoot playerShoot = GameObject.FindObjectOfType<PlayerShoot>();
 
-        string percentUpgrade = ((currentTier + 1) * 10).ToString();
-        float shotSpeed = playerShoot.baseShootSpeed * (1 - (playerShoot.shotSpeedMultiplier + 0.1f)); // 10% faster per upgrade level
-        shotSpeed = Mathf.Round(shotSpeed * 100) / 100; // Round to two decimal places
-        description = "Increase base damage by " + percentUpgrade + "%.  \nNew shot speed: " + shotSpeed;
+        int multishotAmount = playerShoot.multishot + 1;
+        description = "Fires 1 additional bullet per shot.\nTotal bullets per shot: " + multishotAmount;
     }
-
 }

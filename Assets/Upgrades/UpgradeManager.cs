@@ -9,7 +9,8 @@ public class UpgradeManager : MonoBehaviour
     public List<RegenUpgrade> regenUpgrade = new List<RegenUpgrade>();
     public List<MoveSpeedUpgrade> moveSpeedUpgrade = new List<MoveSpeedUpgrade>();
     public List<CritUpgrade> critUpgrade = new List<CritUpgrade>();
-    private int totalUpgrades = 6;
+    public List<MultishotUpgrade> multishotUpgrade = new List<MultishotUpgrade>();
+    private int totalUpgrades = 7;
 
     public GameObject upgradePanel1;
     public GameObject upgradePanel2;
@@ -60,6 +61,9 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case 6:
                 upgrade = critUpgrade.Find(u => u is CritUpgrade && !u.CheckMaxTier());
+                break;
+            case 7:
+                upgrade = multishotUpgrade.Find(u => u is MultishotUpgrade && !u.CheckMaxTier());
                 break;
         }
 
