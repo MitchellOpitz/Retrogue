@@ -6,6 +6,11 @@ public class UpgradeManager : MonoBehaviour
     public List<DamageUpgrade> damageUpgrade = new List<DamageUpgrade>();
     public List<FireSpeedUpgrade> fireSpeedUpgrade = new List<FireSpeedUpgrade>();
     public List<HealthUpgrade> healthUpgrade = new List<HealthUpgrade>();
+    public List<RegenUpgrade> regenUpgrade = new List<RegenUpgrade>();
+    public List<MoveSpeedUpgrade> moveSpeedUpgrade = new List<MoveSpeedUpgrade>();
+    public List<CritUpgrade> critUpgrade = new List<CritUpgrade>();
+    public List<MultishotUpgrade> multishotUpgrade = new List<MultishotUpgrade>();
+    private int totalUpgrades = 7;
 
     public GameObject upgradePanel1;
     public GameObject upgradePanel2;
@@ -19,7 +24,7 @@ public class UpgradeManager : MonoBehaviour
     public void SelectUpgrades()
     {
         List<Upgrade> selectedUpgrades = new List<Upgrade>();
-        for (int i = 0; i < 3; i++) // Choose 3 upgrades
+        for (int i = 0; i < 3; i++)
         {
             Upgrade randomUpgrade = GetRandomUpgrade();
             while (randomUpgrade == null)
@@ -33,7 +38,7 @@ public class UpgradeManager : MonoBehaviour
     }
     private Upgrade GetRandomUpgrade()
     {
-        int randomNumber = Random.Range(1, 4); // Generate a random number between 1 and 3
+        int randomNumber = Random.Range(1, totalUpgrades + 1); // Generate a random number between 1 and 3
 
         Upgrade upgrade = null;
 
@@ -47,6 +52,18 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case 3:
                 upgrade = healthUpgrade.Find(u => u is HealthUpgrade && !u.CheckMaxTier());
+                break;
+            case 4:
+                upgrade = regenUpgrade.Find(u => u is RegenUpgrade && !u.CheckMaxTier());
+                break;
+            case 5:
+                upgrade = moveSpeedUpgrade.Find(u => u is MoveSpeedUpgrade && !u.CheckMaxTier());
+                break;
+            case 6:
+                upgrade = critUpgrade.Find(u => u is CritUpgrade && !u.CheckMaxTier());
+                break;
+            case 7:
+                upgrade = multishotUpgrade.Find(u => u is MultishotUpgrade && !u.CheckMaxTier());
                 break;
         }
 

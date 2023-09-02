@@ -1,14 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class HealthUpgrade : Upgrade
+public class RegenUpgrade : Upgrade
 {
     public override void ApplyUpgradeEffect()
     {
         // Apply fire speed-related upgrade effect
         currentTier++;
         PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
-        playerManager.UpgradeMaxHealth();
+        playerManager.regenMultiplier += 0.01f;
     }
 
     public override bool CheckMaxTier()
@@ -21,8 +21,8 @@ public class HealthUpgrade : Upgrade
     {
         PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
 
-        string percentUpgrade = ((currentTier + 1) * 10).ToString();
-        int healthAmount = Mathf.RoundToInt(playerManager.baseMaxHealth * (playerManager.healthMultiplier + 0.1f));
-        description = "Increase base health by " + percentUpgrade + "%.\nNew health amount: " + healthAmount;
+        string percentUpgrade = ((currentTier + 1)).ToString();
+        int regenAmount = Mathf.RoundToInt(playerManager.baseMaxHealth * (playerManager.regenMultiplier + 0.01f));
+        description = "Restore " + percentUpgrade + "% of base health at the start of every wave.\nNew regen amount: " + regenAmount;
     }
 }

@@ -1,14 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class HealthUpgrade : Upgrade
+public class MoveSpeedUpgrade : Upgrade
 {
     public override void ApplyUpgradeEffect()
     {
         // Apply fire speed-related upgrade effect
         currentTier++;
-        PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
-        playerManager.UpgradeMaxHealth();
+        PlayerMovement playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
+        playerMovement.UpgradeMoveSpeed();
     }
 
     public override bool CheckMaxTier()
@@ -19,10 +19,10 @@ public class HealthUpgrade : Upgrade
 
     private void UpdateDescription()
     {
-        PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+        PlayerMovement playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
 
         string percentUpgrade = ((currentTier + 1) * 10).ToString();
-        int healthAmount = Mathf.RoundToInt(playerManager.baseMaxHealth * (playerManager.healthMultiplier + 0.1f));
-        description = "Increase base health by " + percentUpgrade + "%.\nNew health amount: " + healthAmount;
+        float speedAmount = playerMovement.baseMoveSpeed * (1 + playerMovement.moveSpeedMultiplier + 0.1f);
+        description = "Increase base move speed by " + percentUpgrade + "%.\nNew speed: " + speedAmount;
     }
 }

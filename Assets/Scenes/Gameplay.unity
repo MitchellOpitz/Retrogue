@@ -4418,6 +4418,26 @@ MonoBehaviour:
     description: This is the health up description.
     currentTier: 0
     maxTier: 10
+  regenUpgrade:
+  - name: Regen Up
+    description: This is the regen up description.
+    currentTier: 0
+    maxTier: 10
+  moveSpeedUpgrade:
+  - name: Move Speed Up
+    description: This is the movement speed description.
+    currentTier: 0
+    maxTier: 10
+  critUpgrade:
+  - name: Crit Up
+    description: This is the crit description.
+    currentTier: 0
+    maxTier: 10
+  multishotUpgrade:
+  - name: Multishot Up
+    description: This is the multishot description.
+    currentTier: 0
+    maxTier: 10
   upgradePanel1: {fileID: 1830364727}
   upgradePanel2: {fileID: 178884898}
   upgradePanel3: {fileID: 1371654276}
@@ -8690,19 +8710,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[0]
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[1]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[2]
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[3]
@@ -8768,6 +8788,14 @@ PrefabInstance:
     - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: baseShootSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: playAreaClamp

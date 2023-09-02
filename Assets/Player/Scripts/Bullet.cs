@@ -51,10 +51,22 @@ public class Bullet : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                int damageToDeal = damage; // Initialize damage to the base damage
+
+                // Check for a critical hit based on a random roll and player's critChance
+                float randomRoll = Random.Range(0f, 1f);
+                if (randomRoll < playerManager.critChance)
+                {
+                    //Debug.Log("Crit! Dealing " + (damage * 2) + " damage.");
+                    damageToDeal *= 2; // Double the damage for a critical hit
+                }
+
+                //Debug.Log("Dealing " + damageToDeal + " damage.");
+                enemy.TakeDamage(damageToDeal);
             }
 
             Destroy(gameObject);
         }
     }
+
 }
