@@ -5,11 +5,7 @@ public class SpawnPenalty : Penalty
 {
     private bool needsUnlock = false;
     private string defaultName;
-
-    void Start()
-    {
-        defaultName = name;
-    }
+    private bool isFirstTime = true;
 
     public override void ApplyPenaltyEffect()
     {
@@ -27,8 +23,16 @@ public class SpawnPenalty : Penalty
     }
 
     public override bool CheckMaxTier()
-    {
-        name = defaultName;
+    {        
+        if (isFirstTime)
+        {
+            defaultName = name;
+            isFirstTime = false;
+        } else
+        {
+            name = defaultName;
+        }
+
         enemyType = GetRandomEnemyType();
         if (!CheckUnlock())
         {
