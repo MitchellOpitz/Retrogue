@@ -9,16 +9,17 @@ public class SpawnPenalty : Penalty
 
     public override void ApplyPenaltyEffect()
     {
+        EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         // Apply fire speed-related upgrade effect
         if (needsUnlock)
         {
-            EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
             enemyManager.UnlockEnemyType(enemyType);
             name = defaultName;
         }
         else
         {
             currentTier++;
+            enemyManager.UpdateSpawnRate(enemyType);
         }
     }
 
@@ -31,6 +32,7 @@ public class SpawnPenalty : Penalty
         } else
         {
             name = defaultName;
+            needsUnlock = false;
         }
 
         enemyType = GetRandomEnemyType();
@@ -46,7 +48,7 @@ public class SpawnPenalty : Penalty
 
     private void UpdateDescription()
     {
-        description = "Increases " + enemyType + " spawn rate by " + ((currentTier + 1) * 10) + "%.";
+        description = "Increases " + enemyType + " base spawn rate by " + ((currentTier + 1) * 10) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()

@@ -140,4 +140,17 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void UpdateSpawnRate(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.spawnMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
 }
