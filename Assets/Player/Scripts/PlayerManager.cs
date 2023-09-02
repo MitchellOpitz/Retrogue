@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     public int baseDamage;
     public float damageMultiplier = 0;
+    public float critChance;
     public int baseMaxHealth;
     public float healthMultiplier;
     public float regenMultiplier;
@@ -21,6 +22,7 @@ public class PlayerManager : MonoBehaviour
         damageMultiplier = 0;
         healthMultiplier = 1;
         regenMultiplier = 0;
+        critChance = 0;
 
         currentHealth = baseMaxHealth;
         currentMaxHealth = baseMaxHealth;

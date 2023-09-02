@@ -4427,6 +4427,11 @@ MonoBehaviour:
   - name: Move Speed Up
     description: This is the movement speed description.
     currentTier: 0
+    maxTier: 0
+  critUpgrade:
+  - name: Crit Up
+    description: This is the crit description.
+    currentTier: 0
     maxTier: 10
   upgradePanel1: {fileID: 1830364727}
   upgradePanel2: {fileID: 178884898}
