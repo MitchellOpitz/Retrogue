@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -120,4 +121,22 @@ public class EnemySpawner : MonoBehaviour
 
         return new Vector2(spawnX, spawnY);
     }
+
+    public void UnlockEnemyType(EnemyType enemy)
+    {
+        // Convert the enemyTypes array to a list
+        List<EnemyType> enemyTypeList = new List<EnemyType>(enemyTypes);
+
+        // Check if the enemy is not already in the list
+        if (!enemyTypeList.Contains(enemy))
+        {
+            // Add the unlocked enemy type to the list
+            enemyTypeList.Add(enemy);
+
+            // Convert the list back to an array
+            enemyTypes = enemyTypeList.ToArray();
+        }
+    }
+
+
 }

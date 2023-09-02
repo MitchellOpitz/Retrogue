@@ -113,5 +113,31 @@ public class EnemyManager : MonoBehaviour
         scoreManager.ToggleCanScore(true); // Turn on scoring
         playerExp.ToggleXPGain(true);
     }
+    public bool IsEnemyTypeUnlocked(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.isUnlocked;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return false; // Return a default value or handle this case as needed
+        }
+    }
+
+    public void UnlockEnemyType(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.isUnlocked = true;
+            enemySpawner.UnlockEnemyType(enemyType);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
 
 }

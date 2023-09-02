@@ -11,4 +11,5 @@ public class EnemyTypeProperties
     public int scoreMultiplier;
     public int baseXP;
     public int xpMultiplier;
+    public bool isUnlocked;
 }
