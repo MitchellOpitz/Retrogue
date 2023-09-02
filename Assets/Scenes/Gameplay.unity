@@ -4407,32 +4407,32 @@ MonoBehaviour:
   - name: Damage Up
     description: This is the damage up description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   fireSpeedUpgrade:
   - name: Fire Speed Up
     description: This is the damage up description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   healthUpgrade:
   - name: Health Up
     description: This is the health up description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   regenUpgrade:
   - name: Regen Up
     description: This is the regen up description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   moveSpeedUpgrade:
   - name: Move Speed Up
     description: This is the movement speed description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   critUpgrade:
   - name: Crit Up
     description: This is the crit description.
     currentTier: 0
-    maxTier: 0
+    maxTier: 10
   multishotUpgrade:
   - name: Multishot Up
     description: This is the multishot description.
@@ -8710,19 +8710,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[0]
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[1]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[2]
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[3]
