@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
     private float shootInterval;
 
     private bool isShooting = false;
+    private bool canShoot = true;
 
     private void Start()
     {
@@ -35,19 +36,9 @@ public class PlayerShoot : MonoBehaviour
             StopShooting();
         }
     }
-
-    private void RotatePlayerTowardsMouse()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = transform.position.z; // Ensure the same Z position as the player
-        Vector3 lookDirection = mousePosition - transform.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f); // Adjust rotation by -90 degrees
-    }
-
     private void StartShooting()
     {
-        if (!isShooting)
+        if (!isShooting && canShoot)
         {
             isShooting = true;
             StartCoroutine(ShootContinuously());
@@ -59,7 +50,6 @@ public class PlayerShoot : MonoBehaviour
         if (isShooting)
         {
             isShooting = false;
-            StopCoroutine(ShootContinuously());
         }
     }
 
@@ -68,8 +58,19 @@ public class PlayerShoot : MonoBehaviour
         while (isShooting)
         {
             Shoot();
+            canShoot = false; // Prevent shooting until the cooldown is over
             yield return new WaitForSeconds(shootInterval);
+            canShoot = true; // Allow shooting again after the cooldown
         }
+    }
+
+    private void RotatePlayerTowardsMouse()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = transform.position.z; // Ensure the same Z position as the player
+        Vector3 lookDirection = mousePosition - transform.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f); // Adjust rotation by -90 degrees
     }
 
     private void Shoot()
