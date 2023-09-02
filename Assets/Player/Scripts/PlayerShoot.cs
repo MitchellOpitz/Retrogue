@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     public float shotSpeedMultiplier = 0;
     private float shootInterval;
 
-    private bool isShooting = false;
+    private bool canShoot = true;
 
     private void Start()
     {
@@ -26,14 +26,22 @@ public class PlayerShoot : MonoBehaviour
         RotatePlayerTowardsMouse();
 
         // Check for left mouse button press and release
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            StartShooting();
+            if (canShoot)
+            {
+
+                StartCoroutine(ShootContinuously());
+            }
         }
-        else if (Input.GetButtonUp("Fire1"))
-        {
-            StopShooting();
-        }
+    }
+
+    private IEnumerator ShootContinuously()
+    {
+        Shoot();
+        canShoot = false; // Prevent shooting until the cooldown is over
+        yield return new WaitForSeconds(shootInterval);
+        canShoot = true; // Allow shooting again after the cooldown
     }
 
     private void RotatePlayerTowardsMouse()
@@ -43,33 +51,6 @@ public class PlayerShoot : MonoBehaviour
         Vector3 lookDirection = mousePosition - transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f); // Adjust rotation by -90 degrees
-    }
-
-    private void StartShooting()
-    {
-        if (!isShooting)
-        {
-            isShooting = true;
-            StartCoroutine(ShootContinuously());
-        }
-    }
-
-    private void StopShooting()
-    {
-        if (isShooting)
-        {
-            isShooting = false;
-            StopCoroutine(ShootContinuously());
-        }
-    }
-
-    private IEnumerator ShootContinuously()
-    {
-        while (isShooting)
-        {
-            Shoot();
-            yield return new WaitForSeconds(shootInterval);
-        }
     }
 
     private void Shoot()
