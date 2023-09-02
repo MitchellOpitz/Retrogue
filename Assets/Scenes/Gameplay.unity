@@ -4418,6 +4418,11 @@ MonoBehaviour:
     description: This is the health up description.
     currentTier: 0
     maxTier: 10
+  regenUpgrade:
+  - name: Regen Up
+    description: This is the regen up description.
+    currentTier: 0
+    maxTier: 10
   upgradePanel1: {fileID: 1830364727}
   upgradePanel2: {fileID: 178884898}
   upgradePanel3: {fileID: 1371654276}

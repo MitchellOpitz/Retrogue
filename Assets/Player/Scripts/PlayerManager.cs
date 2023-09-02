@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public float damageMultiplier = 0;
     public int baseMaxHealth;
     public float healthMultiplier;
+    public float regenMultiplier;
     public TextMeshProUGUI healthText;
 
     private int currentHealth;
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     {
         damageMultiplier = 0;
         healthMultiplier = 1;
+        regenMultiplier = 0;
 
         currentHealth = baseMaxHealth;
         currentMaxHealth = baseMaxHealth;
@@ -36,6 +38,16 @@ public class PlayerManager : MonoBehaviour
     {
         healthMultiplier += 0.1f;
         currentMaxHealth = Mathf.RoundToInt(baseMaxHealth * healthMultiplier);
+        UpdateHealthUI();
+    }
+
+    public void ActivateRegen()
+    {
+        currentHealth += Mathf.RoundToInt(baseMaxHealth * regenMultiplier);
+        if (currentHealth > currentMaxHealth)
+        {
+            currentHealth = currentMaxHealth;
+        }
         UpdateHealthUI();
     }
 

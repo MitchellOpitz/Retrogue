@@ -9,17 +9,19 @@ public class CountdownManager : MonoBehaviour
     public TextMeshProUGUI countdownText;
 
     private Color originalColor;
+    private PlayerManager playerManager;
 
     private void Start()
     {
-        countdownText.text = "Hello";
         originalColor = countdownText.color; // Store the original color
+        playerManager = FindObjectOfType<PlayerManager>();
         StartCountdown();
     }
 
     public void StartCountdown()
     {
         // Debug.Log("Starting countdown.");
+        playerManager.ActivateRegen();
         StartCoroutine(Countdown());
     }
 
