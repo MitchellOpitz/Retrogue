@@ -54,12 +54,13 @@ public class Leaderboard : MonoBehaviour
     {
         LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, ((msg) =>
         {
-            GetLeaderboard();
+            //GetLeaderboard();
+            LeaderboardCreator.ResetPlayer();
         }));
     }
     public void GetHighScores()
     {
-        Debug.Log("Retrieving High Scores.");
+        //Debug.Log("Retrieving High Scores.");
         LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, ((msg) =>
         {
             for (int i = 0; i < 10; i++)
@@ -74,14 +75,14 @@ public class Leaderboard : MonoBehaviour
     {
         for (int i = 0; i < scoresList.Count; i++)
         {
-            Debug.Log("Comparing: " + myScore + " to " + scoresList[i]);
+            //Debug.Log("Comparing: " + myScore + " to " + scoresList[i]);
             if (myScore > scoresList[i])
             {
-                Debug.Log("New high score!");
+                //Debug.Log("New high score!");
                 return true;
             }
         }
-        Debug.Log("No High Score.");
+        //Debug.Log("No High Score.");
         return false;
     }
 }

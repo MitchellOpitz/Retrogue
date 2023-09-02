@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI scoreText;
+    public GameObject enterNamePanel;
+    public TMP_InputField inputName;
+
+    public UnityEvent<string, int> submitScoreEvent;
 
     private ScoreManager scoreManager;
     private Leaderboard leaderboard;
     private int score;
+
 
     private void Start()
     {
@@ -49,10 +55,18 @@ public class GameOverManager : MonoBehaviour
         if (leaderboard.CheckHighScore(score))
         {
             gameOverText.text = "New high score!";
+            enterNamePanel.SetActive(true);
 
         } else
         {
             SceneManagement.instance.LoadSceneByName("Title");
         }
+    }
+
+    public void SubmitScore()
+    {
+        submitScoreEvent.Invoke(inputName.text, score);
+
+        SceneManagement.instance.LoadSceneByName("HighScores");
     }
 }
