@@ -57,11 +57,11 @@ public class Bullet : MonoBehaviour
                 float randomRoll = Random.Range(0f, 1f);
                 if (randomRoll < playerManager.critChance)
                 {
-                    Debug.Log("Crit! Dealing " + (damage * 2) + " damage.");
+                    //Debug.Log("Crit! Dealing " + (damage * 2) + " damage.");
                     damageToDeal *= 2; // Double the damage for a critical hit
                 }
 
-                Debug.Log("Dealing " + damageToDeal + " damage.");
+                //Debug.Log("Dealing " + damageToDeal + " damage.");
                 enemy.TakeDamage(damageToDeal);
             }
 
