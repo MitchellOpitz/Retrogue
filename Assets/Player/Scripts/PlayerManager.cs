@@ -47,10 +47,10 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D collider)
     {
-        Debug.Log("Collision detected.");
+        // Debug.Log("Collision detected.");
         if (collider.gameObject.tag == "Enemy")
         {
-            Debug.Log("Enemy detected.");
+            // Debug.Log("Enemy detected.");
             Damage(10);
         }
     }
