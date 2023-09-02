@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &66219839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -10000
   m_TargetDisplay: 0
 --- !u!1 &89792378
 GameObject:
@@ -3029,7 +3029,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &759396990
 MonoBehaviour:
@@ -4389,7 +4389,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1235816944
 MonoBehaviour:
@@ -6396,6 +6396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a8e3cc32d30974ba871282c64fb95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 66219838}
   gameOverText: {fileID: 1334753371}
   scoreText: {fileID: 227431564}
   enterNamePanel: {fileID: 1735387983}

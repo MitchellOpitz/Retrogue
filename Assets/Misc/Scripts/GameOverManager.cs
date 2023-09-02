@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
+    public GameObject gameOverCanvas;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI scoreText;
     public GameObject enterNamePanel;
@@ -28,6 +29,8 @@ public class GameOverManager : MonoBehaviour
     {
         leaderboard.GetHighScores();
         score = scoreManager.GetFinalScore();
+        gameOverCanvas.SetActive(true);
+        gameOverCanvas.GetComponent<Canvas>().sortingOrder = 10;
         StartCoroutine(GameOverText(1.5f));
     }
 
