@@ -24,6 +24,13 @@ public class LevelUpManager : MonoBehaviour
     public void LevelUp()
     {
         enemyManager.DestroyAllEnemies();
+
+        Bullet[] bullets = FindObjectsOfType<Bullet>();
+        foreach (Bullet bullet in bullets)
+        {
+            bullet.DestroyBullet();
+        }
+
         upgradeManager.StartUpgrades();
         StartUpgradeTransition();
     }
