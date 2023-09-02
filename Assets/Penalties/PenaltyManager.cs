@@ -22,15 +22,20 @@ public class PenaltyManager : MonoBehaviour
         for (int i = 0; i < 3; i++) // Choose 3 penalties
         {
             Penalty randomPenalty = GetRandomPenalty();
-            while (randomPenalty == null)
+
+            // Keep generating random upgrades until a valid one is found
+            do
             {
                 randomPenalty = GetRandomPenalty();
-            }
+            } while (randomPenalty == null || selectedPenalties.Contains(randomPenalty));
+
             selectedPenalties.Add(randomPenalty);
         }
 
         DisplayPenalties(selectedPenalties);
     }
+
+
 
     private Penalty GetRandomPenalty()
     {
