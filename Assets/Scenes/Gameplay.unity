@@ -4407,20 +4407,25 @@ MonoBehaviour:
   - name: Damage Up
     description: This is the damage up description.
     currentTier: 0
-    maxTier: 10
+    maxTier: 0
   fireSpeedUpgrade:
   - name: Fire Speed Up
     description: This is the damage up description.
     currentTier: 0
-    maxTier: 10
+    maxTier: 0
   healthUpgrade:
   - name: Health Up
     description: This is the health up description.
     currentTier: 0
-    maxTier: 10
+    maxTier: 0
   regenUpgrade:
   - name: Regen Up
     description: This is the regen up description.
+    currentTier: 0
+    maxTier: 0
+  moveSpeedUpgrade:
+  - name: Move Speed Up
+    description: This is the movement speed description.
     currentTier: 0
     maxTier: 10
   upgradePanel1: {fileID: 1830364727}
@@ -8773,6 +8778,14 @@ PrefabInstance:
     - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: baseShootSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: playAreaClamp

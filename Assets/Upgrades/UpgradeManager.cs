@@ -7,7 +7,8 @@ public class UpgradeManager : MonoBehaviour
     public List<FireSpeedUpgrade> fireSpeedUpgrade = new List<FireSpeedUpgrade>();
     public List<HealthUpgrade> healthUpgrade = new List<HealthUpgrade>();
     public List<RegenUpgrade> regenUpgrade = new List<RegenUpgrade>();
-    private int totalUpgrades = 4;
+    public List<MoveSpeedUpgrade> moveSpeedUpgrade = new List<MoveSpeedUpgrade>();
+    private int totalUpgrades = 5;
 
     public GameObject upgradePanel1;
     public GameObject upgradePanel2;
@@ -52,6 +53,9 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case 4:
                 upgrade = regenUpgrade.Find(u => u is RegenUpgrade && !u.CheckMaxTier());
+                break;
+            case 5:
+                upgrade = moveSpeedUpgrade.Find(u => u is MoveSpeedUpgrade && !u.CheckMaxTier());
                 break;
         }
 

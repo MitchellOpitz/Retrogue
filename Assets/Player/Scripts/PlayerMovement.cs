@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
     public PlayAreaClamp playAreaClamp; // Reference to the PlayAreaClamp script
+    public float moveSpeedMultiplier;
 
     private float _playerHalfWidth;
     private float _playerHalfHeight;
+    private float moveSpeed;
 
     private void Start()
     {
         // Calculate half of the player's width and height
         _playerHalfWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2f;
         _playerHalfHeight = GetComponent<SpriteRenderer>().bounds.size.y / 2f;
+
+        moveSpeedMultiplier = 0;
+        moveSpeed = baseMoveSpeed;
     }
 
     private void Update()
@@ -37,5 +42,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.position = newPosition;
+    }
+
+    public void UpgradeMoveSpeed()
+    {
+        moveSpeedMultiplier += 0.1f;
+        moveSpeed = baseMoveSpeed * (1 + moveSpeedMultiplier);
     }
 }
