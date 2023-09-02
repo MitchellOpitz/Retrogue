@@ -19,7 +19,7 @@ public class CountdownManager : MonoBehaviour
 
     public void StartCountdown()
     {
-        Debug.Log("Starting countdown.");
+        // Debug.Log("Starting countdown.");
         StartCoroutine(Countdown());
     }
 
