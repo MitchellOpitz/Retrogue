@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI healthText;
 
     private int currentHealth;
+    private int currentMaxHealth;
     private EnemyManager enemyManager;
 
     private void Start()
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         healthMultiplier = 1;
 
         currentHealth = baseMaxHealth;
+        currentMaxHealth = baseMaxHealth;
         UpdateHealthUI();
 
         enemyManager = FindObjectOfType<EnemyManager>();
@@ -27,7 +29,14 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        healthText.text = "Health: " + currentHealth + " / " + (baseMaxHealth * healthMultiplier);
+        healthText.text = "Health: " + currentHealth + " / " + currentMaxHealth;
+    }
+
+    public void UpgradeMaxHealth()
+    {
+        healthMultiplier += 0.1f;
+        currentMaxHealth = Mathf.RoundToInt(baseMaxHealth * healthMultiplier);
+        UpdateHealthUI();
     }
 
     public void Damage(int damage)
