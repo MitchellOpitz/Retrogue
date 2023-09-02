@@ -27,15 +27,19 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Upgrade randomUpgrade = GetRandomUpgrade();
-            while (randomUpgrade == null)
+
+            // Keep generating random upgrades until a valid one is found
+            do
             {
                 randomUpgrade = GetRandomUpgrade();
-            }
+            } while (randomUpgrade == null || selectedUpgrades.Contains(randomUpgrade));
+
             selectedUpgrades.Add(randomUpgrade);
         }
 
         DisplayUpgrades(selectedUpgrades);
     }
+
     private Upgrade GetRandomUpgrade()
     {
         int randomNumber = Random.Range(1, totalUpgrades + 1); // Generate a random number between 1 and 3
@@ -69,7 +73,6 @@ public class UpgradeManager : MonoBehaviour
 
         return upgrade;
     }
-
 
     private void DisplayUpgrades(List<Upgrade> upgrades)
     {
