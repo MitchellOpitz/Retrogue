@@ -8,7 +8,6 @@ public class EnemyTypeC : Enemy
     {
         float healthMultiplier = enemyManager.GetHealthMultiplier(enemyType);
         currentMaxHealth = (int)(baseMaxHealth * (1 + healthMultiplier));
-        Debug.Log(enemyType + " currrent max health: " + currentMaxHealth);
         currentHealth = currentMaxHealth; // Initialize health
 
         // Find the player's transform using a tag or other method
