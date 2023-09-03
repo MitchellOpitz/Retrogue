@@ -45,8 +45,8 @@ public class MoveSpeedPenalty : Penalty
         UpdateDescription();
 
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetMoveSpeedMultiplier(enemyType);
-        return currentRank >= 1; // Assuming maxTier is a variable defined in your UpgradeManager
+        int currentRank = enemyManager.GetMoveSpeedMultiplierRank(enemyType);
+        return currentRank >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
     private void UpdateDescription()

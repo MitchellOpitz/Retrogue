@@ -45,7 +45,7 @@ public class DamagePenalty : Penalty
         UpdateDescription();
 
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetDamageMultiplier(enemyType);
+        int currentRank = enemyManager.GetDamageMultiplierRank(enemyType);
         return currentRank >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
