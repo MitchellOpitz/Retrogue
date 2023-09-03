@@ -219,4 +219,30 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void UpdateHealthMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.healthMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+    public float GetHealthMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.healthMultiplier;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
 }

@@ -17,6 +17,7 @@ public class EnemyTypeProperties
 
     public float damageMultiplier;
     public float moveSpeedMultiplier;
+    public float healthMultiplier;
 
     public bool isUnlocked;
 }

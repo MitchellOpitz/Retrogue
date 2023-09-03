@@ -6,7 +6,8 @@ public class PenaltyManager : MonoBehaviour
     public List<SpawnPenalty> spawnPenalty = new List<SpawnPenalty>();
     public List<MoveSpeedPenalty> moveSpeedPenalty = new List<MoveSpeedPenalty>();
     public List<DamagePenalty> damagePenalty = new List<DamagePenalty>();
-    private int totalPenalties = 3;
+    public List<HealthPenalty> healthPenalty = new List<HealthPenalty>();
+    private int totalPenalties = 4;
 
 
     public GameObject penaltyPanel1;
@@ -53,6 +54,9 @@ public class PenaltyManager : MonoBehaviour
                 break;
             case 3:
                 penalty = damagePenalty.Find(p => p is DamagePenalty && !p.CheckMaxTier());
+                break;
+            case 4:
+                penalty = healthPenalty.Find(p => p is HealthPenalty && !p.CheckMaxTier());
                 break;
         }
 
