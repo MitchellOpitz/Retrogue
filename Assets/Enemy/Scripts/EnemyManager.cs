@@ -305,4 +305,18 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public string GetMovementPattern(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.movementPattern; ;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return "";
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
 }

@@ -25,4 +25,6 @@ public class EnemyTypeProperties
     public int moveSpeedMultiplierRank;
     public int spawnRateMultiplierRank;
     public int healthMultiplierRank;
+
+    public string movementPattern;
 }

@@ -69,7 +69,7 @@ public class SpawnPenalty : Penalty
         {
             needsUnlock = true;
             name = "Unlock " + enemyType;
-            description = "Causes a new enemy type to spawn.";
+            description = "Causes a new enemy type to spawn.\n" + enemyManager.GetMovementPattern(enemyType);
             return false;
         }
 

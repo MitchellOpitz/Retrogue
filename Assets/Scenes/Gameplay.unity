@@ -8631,16 +8631,32 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[0].movementPattern
+      value: Moves horizontally and vertically in a straight line.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[0].scoreMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[1].movementPattern
+      value: Moves horizontally and vertically in a wave pattern.
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[1].scoreMultiplier
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[2].movementPattern
+      value: Constantly chases the player.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[2].scoreMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[3].movementPattern
+      value: Moves in a straight line diagonally.
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[3].scoreMultiplier
