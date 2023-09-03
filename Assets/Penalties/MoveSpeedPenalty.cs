@@ -9,7 +9,6 @@ public class MoveSpeedPenalty : Penalty
 
     public override void ApplyPenaltyEffect()
     {
-        Debug.Log("MoveSpeed - ApplyPenaltyEffect()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         // Apply fire speed-related upgrade effect
         if (needsUnlock)
@@ -26,7 +25,6 @@ public class MoveSpeedPenalty : Penalty
 
     public override bool CheckMaxTier()
     {
-        Debug.Log("MoveSpeed - CheckMaxTier()");
         if (isFirstTime)
         {
             defaultName = name;
@@ -46,15 +44,15 @@ public class MoveSpeedPenalty : Penalty
 
         UpdateDescription();
 
-        return currentTier >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
+        EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+        float currentRank = enemyManager.GetMoveSpeedMultiplier(enemyType);
+        return currentRank >= 1; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
     private void UpdateDescription()
     {
-        Debug.Log("MoveSpeed - UpdateDescription()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         float currentRank = enemyManager.GetMoveSpeedMultiplier(enemyType);
-        Debug.Log(currentRank);
         description = "Increases " + enemyType + " base move speed by " + ((currentRank + 0.1f) * 100) + "%.";
     }
 
@@ -66,7 +64,6 @@ public class MoveSpeedPenalty : Penalty
 
     private bool CheckUnlock()
     {
-        Debug.Log("MoveSpeed - CheckUnlock()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
 
         if (!enemyManager.IsEnemyTypeUnlocked(enemyType))

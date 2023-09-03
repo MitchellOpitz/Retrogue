@@ -20,7 +20,6 @@ public class PenaltyManager : MonoBehaviour
 
     public void SelectPenalties()
     {
-        Debug.Log("SelectPenalties()");
         List<Penalty> selectedPenalties = new List<Penalty>();
         for (int i = 0; i < 3; i++) // Choose 3 penalties
         {
@@ -40,7 +39,6 @@ public class PenaltyManager : MonoBehaviour
 
     private Penalty GetRandomPenalty()
     {
-        Debug.Log("GetRandomPenalty()");
         int randomNumber = Random.Range(1, totalPenalties + 1);
 
         Penalty penalty = null;

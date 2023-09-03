@@ -9,7 +9,6 @@ public class SpawnPenalty : Penalty
 
     public override void ApplyPenaltyEffect()
     {
-        Debug.Log("Spawn - ApplyPenaltyEffect()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         // Apply fire speed-related upgrade effect
         if (needsUnlock)
@@ -26,7 +25,6 @@ public class SpawnPenalty : Penalty
 
     public override bool CheckMaxTier()
     {
-        Debug.Log("Spawn - CheckMaxTier()");
         if (isFirstTime)
         {
             defaultName = name;
@@ -45,28 +43,26 @@ public class SpawnPenalty : Penalty
 
         UpdateDescription();
 
-        return currentTier >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
+        EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+        float currentRank = enemyManager.GetSpawnRate(enemyType);
+        return currentRank >= 1; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
     private void UpdateDescription()
     {
-        Debug.Log("Spawn - UpdateDescription()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         float currentRank = enemyManager.GetSpawnRate(enemyType);
-        Debug.Log(currentRank);
         description = "Increases " + enemyType + " base spawn rate by " + ((currentRank + 0.1f) * 100) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()
     {
-        Debug.Log("Spawn - GetRandomEnemyType()");
         int randomIndex = Random.Range(0, System.Enum.GetValues(typeof(EnemyType)).Length);
         return (EnemyType)randomIndex;
     }
 
     private bool CheckUnlock()
     {
-        Debug.Log("Spawn - CheckUnlock()");
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
 
         if (!enemyManager.IsEnemyTypeUnlocked(enemyType))
