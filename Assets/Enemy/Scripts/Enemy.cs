@@ -79,7 +79,13 @@ public class Enemy : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        scoreManager.ToggleCanScore(false); // Turn off scoring
+        playerExp.ToggleXPGain(false);
+
         Die();
+
+        scoreManager.ToggleCanScore(true); // Turn on scoring
+        playerExp.ToggleXPGain(true);
     }
 
 }

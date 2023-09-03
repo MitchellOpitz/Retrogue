@@ -75,6 +75,8 @@ public class PlayerManager : MonoBehaviour
         {
             // Debug.Log("Enemy detected.");
             Damage(10);
+
+            collider.GetComponent<Enemy>().DestroyEnemy();
         }
     }
 }
