@@ -3049,8 +3049,18 @@ MonoBehaviour:
     currentTier: 0
     maxTier: 10
     enemyType: 0
-  moveSpeedPenalty: []
-  damagePenalty: []
+  moveSpeedPenalty:
+  - name: Move Speed Up
+    description: 
+    currentTier: 0
+    maxTier: 10
+    enemyType: 0
+  damagePenalty:
+  - name: Damage Up
+    description: 
+    currentTier: 0
+    maxTier: 10
+    enemyType: 0
   penaltyPanel1: {fileID: 1675433127}
   penaltyPanel2: {fileID: 32908086}
   penaltyPanel3: {fileID: 737009333}
@@ -8798,7 +8808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: baseShootSpeed
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: moveSpeed
