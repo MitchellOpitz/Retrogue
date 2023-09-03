@@ -3061,6 +3061,12 @@ MonoBehaviour:
     currentTier: 0
     maxTier: 10
     enemyType: 0
+  healthPenalty:
+  - name: Health Up
+    description: 
+    currentTier: 0
+    maxTier: 10
+    enemyType: 0
   penaltyPanel1: {fileID: 1675433127}
   penaltyPanel2: {fileID: 32908086}
   penaltyPanel3: {fileID: 737009333}
@@ -8561,6 +8567,22 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[0].isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[1].isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[2].isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
+      propertyPath: enemyTypePropertiesList.Array.data[3].isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[0].enemyPrefab
       value: 
       objectReference: {fileID: 4542503766583391398, guid: 967016e055a48f346940dcbdfa776c40, type: 3}
@@ -8602,7 +8624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[2].baseSpawnRate
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[3].baseSpawnRate
@@ -8715,15 +8737,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[0]
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[1]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[2]
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2112377492591027691, guid: a7a7cfd56c470654a9c1f41f1b424c55, type: 3}
       propertyPath: enemyTypes.Array.data[3]
@@ -8786,6 +8808,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: multishot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: baseShootSpeed
       value: 0.5

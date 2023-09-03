@@ -113,5 +113,136 @@ public class EnemyManager : MonoBehaviour
         scoreManager.ToggleCanScore(true); // Turn on scoring
         playerExp.ToggleXPGain(true);
     }
+    public bool IsEnemyTypeUnlocked(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.isUnlocked;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return false; // Return a default value or handle this case as needed
+        }
+    }
+
+    public void UnlockEnemyType(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.isUnlocked = true;
+            enemySpawner.UnlockEnemyType(enemyType);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public void UpdateSpawnRate(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.spawnMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public float GetSpawnRate(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.spawnMultiplier;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public void UpdateMoveSpeedMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.moveSpeedMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+    public float GetMoveSpeedMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.moveSpeedMultiplier;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public void UpdateDamageMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.damageMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+    public float GetDamageMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.damageMultiplier;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public void UpdateHealthMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            properties.healthMultiplier += 0.1f;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+    public float GetHealthMultiplier(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.healthMultiplier;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
 
 }

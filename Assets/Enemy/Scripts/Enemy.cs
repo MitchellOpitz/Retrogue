@@ -3,12 +3,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyType enemyType; // The type of the enemy
-    public int maxHealth = 100; // Maximum health of the enemy
+    public int baseMaxHealth = 100; // Maximum health of the enemy
     public float bufferDistance = 5f; // Set the buffer distance
     public float moveSpeed = 5f; // Movement speed of the enemy
 
-    private int currentHealth;   // Current health of the enemy
+    protected int currentHealth;   // Current health of the enemy
+    protected int currentMaxHealth;
     private ScoreManager scoreManager;
+    protected EnemyManager enemyManager;
     private PlayerExp playerExp;
     protected PlayAreaClamp playAreaClamp; // Reference to the PlayAreaClamp script
     protected SpawnDirection spawnDirection;
@@ -19,12 +21,17 @@ public class Enemy : MonoBehaviour
         playAreaClamp = FindObjectOfType<PlayAreaClamp>();
         scoreManager = FindObjectOfType<ScoreManager>();
         playerExp = FindAnyObjectByType<PlayerExp>();
+        enemyManager = FindAnyObjectByType<EnemyManager>();
     }
 
     private void Start()
     {
-        currentHealth = maxHealth; // Initialize health
+        float healthMultiplier = enemyManager.GetHealthMultiplier(enemyType);
+        currentMaxHealth = (int)(baseMaxHealth * (1 + healthMultiplier));
+        Debug.Log(enemyType + " currrent max health: " + currentMaxHealth);
+        currentHealth = currentMaxHealth; // Initialize health
     }
+
     private void Update()
     {
         Move();

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class SpawnPenalty : Penalty
+public class HealthPenalty : Penalty
 {
     private bool needsUnlock = false;
     private string defaultName;
@@ -19,7 +19,7 @@ public class SpawnPenalty : Penalty
         else
         {
             currentTier++;
-            enemyManager.UpdateSpawnRate(enemyType);
+            enemyManager.UpdateHealthMultiplier(enemyType);
         }
     }
 
@@ -29,7 +29,8 @@ public class SpawnPenalty : Penalty
         {
             defaultName = name;
             isFirstTime = false;
-        } else
+        }
+        else
         {
             name = defaultName;
             needsUnlock = false;
@@ -44,15 +45,15 @@ public class SpawnPenalty : Penalty
         UpdateDescription();
 
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetSpawnRate(enemyType);
-        return currentRank >= 1; // Assuming maxTier is a variable defined in your UpgradeManager
+        float currentRank = enemyManager.GetHealthMultiplier(enemyType);
+        return currentRank >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
     private void UpdateDescription()
     {
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetSpawnRate(enemyType);
-        description = "Increases " + enemyType + " base spawn rate by " + ((currentRank + 0.1f) * 100) + "%.";
+        float currentRank = enemyManager.GetHealthMultiplier(enemyType);
+        description = "Increases " + enemyType + " base health by " + ((currentRank + 0.1f) * 100) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()

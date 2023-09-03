@@ -6,6 +6,9 @@ public class PenaltyManager : MonoBehaviour
     public List<SpawnPenalty> spawnPenalty = new List<SpawnPenalty>();
     public List<MoveSpeedPenalty> moveSpeedPenalty = new List<MoveSpeedPenalty>();
     public List<DamagePenalty> damagePenalty = new List<DamagePenalty>();
+    public List<HealthPenalty> healthPenalty = new List<HealthPenalty>();
+    private int totalPenalties = 4;
+
 
     public GameObject penaltyPanel1;
     public GameObject penaltyPanel2;
@@ -35,11 +38,9 @@ public class PenaltyManager : MonoBehaviour
         DisplayPenalties(selectedPenalties);
     }
 
-
-
     private Penalty GetRandomPenalty()
     {
-        int randomNumber = Random.Range(1, 4); // Generate a random number between 1 and 3
+        int randomNumber = Random.Range(1, totalPenalties + 1);
 
         Penalty penalty = null;
 
@@ -53,6 +54,9 @@ public class PenaltyManager : MonoBehaviour
                 break;
             case 3:
                 penalty = damagePenalty.Find(p => p is DamagePenalty && !p.CheckMaxTier());
+                break;
+            case 4:
+                penalty = healthPenalty.Find(p => p is HealthPenalty && !p.CheckMaxTier());
                 break;
         }
 
