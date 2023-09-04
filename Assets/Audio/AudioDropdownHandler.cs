@@ -6,10 +6,12 @@ public class AudioDropdownHandler : MonoBehaviour
 {
     private AudioManager audioManager;
     private TMP_Dropdown dropdown;
+    private bool isFirstTime;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        isFirstTime = true;
         LoadDropdown();
     }
 
@@ -22,7 +24,13 @@ public class AudioDropdownHandler : MonoBehaviour
     // This method is called when the dropdown value changes
     public void OnAudioTrackSelected(int trackIndex)
     {
-        // Call the AudioManager to transition to the selected track
-        audioManager.TransitionToAudioTrack(trackIndex);
+        if (isFirstTime)
+        {
+            isFirstTime = false;
+        } else
+        {
+            // Call the AudioManager to transition to the selected track
+            audioManager.TransitionToAudioTrack(trackIndex);
+        }
     }
 }

@@ -4,8 +4,10 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10f;       // Speed of the bullet
     public float destroyDistance = 5f; // Distance at which the bullet should be destroyed
-    public float bufferDistance = 5f; // Set the buffer distance
-    
+    public float bufferDistance = 5f; // Set the buffer distancepublic
+    public float rotationSpeed = 180f;     // Rotation speed in degrees per second, you can edit this in the inspector
+    public Transform bulletSprite;
+
     private int damage;
     private float damageMultiplier;
 
@@ -24,6 +26,7 @@ public class Bullet : MonoBehaviour
     {
         MoveBullet();
         CheckOutOfBounds();
+        //RotateBulletSprite();
     }
 
     private void MoveBullet()
@@ -72,5 +75,10 @@ public class Bullet : MonoBehaviour
     public void DestroyBullet()
     {
         Destroy(gameObject);
+    }
+    private void RotateBulletSprite()
+    {
+        // Rotate the child object (bullet sprite) along the Z-axis
+        bulletSprite.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
 }
