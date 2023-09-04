@@ -1,17 +1,17 @@
-using System;
 using UnityEngine;
-using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
-// To call a sound, use the following within a script:
-// FindObjectOfType<AudioManager>().PlaySound("NAME");
 public class AudioManager : MonoBehaviour
 {
-    public TMP_Dropdown dropdown;
+    public Slider musicVolumeSlider;
+    public TMP_Dropdown dropdown; // Reference to the TMP_Dropdown for selecting music tracks
     public static AudioManager instance;
     public Sound[] sounds;
 
     public int currentAudioTrackIndex; // Default track index
+
+    private const string MusicVolumePlayerPrefKey = "MusicVolume";
 
     void Awake()
     {
@@ -35,15 +35,20 @@ public class AudioManager : MonoBehaviour
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }
-        
+
         // Load the saved audio track preference
         currentAudioTrackIndex = PlayerPrefs.GetInt("CurrentAudioTrackIndex", currentAudioTrackIndex);
         PlayAudioTrack(currentAudioTrackIndex);
+
+        // Load the saved music volume preference
+        float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumePlayerPrefKey, 0.5f); // Default to 0.5 (50% volume)
+        musicVolumeSlider.value = savedMusicVolume; // Update the slider's value
+        UpdateMusicVolume(); // Set the volume based on the loaded preference
     }
 
     public void PlaySound(string name)
     {
-        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        Sound sound = System.Array.Find(sounds, sound => sound.name == name);
         if (sound == null)
         {
             Debug.LogWarning("Sound not found: " + name + ".");
@@ -78,7 +83,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeOutAndChangeTrack(trackIndex));
     }
 
-    private IEnumerator FadeOutAndChangeTrack(int newTrackIndex)
+    private System.Collections.IEnumerator FadeOutAndChangeTrack(int newTrackIndex)
     {
         float fadeDuration = 2.0f; // Duration of fade-out
         float timer = 0f;
@@ -101,7 +106,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeInNewTrack());
     }
 
-    private IEnumerator FadeInNewTrack()
+    private System.Collections.IEnumerator FadeInNewTrack()
     {
         float fadeDuration = 2.0f; // Duration of fade-in
         float timer = 0f;
@@ -128,5 +133,20 @@ public class AudioManager : MonoBehaviour
 
         // Save the current audio track preference
         PlayerPrefs.SetInt("CurrentAudioTrackIndex", currentAudioTrackIndex);
+    }
+
+    // Add this method to update the music volume
+    public void UpdateMusicVolume()
+    {
+        float volume = musicVolumeSlider.value;
+        // Update the volume of the currently selected music track's AudioSource
+        if (currentAudioTrackIndex >= 0 && currentAudioTrackIndex < sounds.Length)
+        {
+            sounds[currentAudioTrackIndex].source.volume = volume;
+        }
+
+        // Save the music volume preference to PlayerPrefs
+        PlayerPrefs.SetFloat(MusicVolumePlayerPrefKey, volume);
+        PlayerPrefs.Save();
     }
 }
