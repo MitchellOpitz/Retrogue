@@ -889,6 +889,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448496207}
   m_CullTransparentMesh: 1
+--- !u!114 &453779723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4567195000678655970, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+  m_PrefabInstance: {fileID: 8639686313730687534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0708457d9cf89e94d8906b4d312b6ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637716038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,12 +3696,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
-      propertyPath: multishot
-      value: 1
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 453779723}
+    - target: {fileID: 2629352740973198061, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
-      propertyPath: baseMoveSpeed
-      value: 4
+    - target: {fileID: 2629352740973198061, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629352740973198061, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2813035577844310955, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: playAreaClamp
@@ -3740,14 +3759,6 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 637716040}
-    - target: {fileID: 3648978089460105722, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
-      propertyPath: baseMaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3648978089460105722, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
-      propertyPath: healthMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5070339232648270315, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: m_Name
       value: Player

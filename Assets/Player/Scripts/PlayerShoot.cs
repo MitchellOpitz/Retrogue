@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint;        // Reference to the firepoint GameObject
     public float baseShootSpeed = 0.2f; // Interval between shots in seconds
     public int multishot;
+    public MuzzleFlash muzzleFlash;
 
     public float shotSpeedMultiplier = 0;
     private float shootInterval;
@@ -55,6 +56,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot()
     {
+        muzzleFlash.ShowMuzzleFlash();
         // Calculate the total spread angle
         float angleBetweenShots = 20f;
         float totalSpreadAngle = angleBetweenShots * (multishot - 1); // Adjust this angle as needed
