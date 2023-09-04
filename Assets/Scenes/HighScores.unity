@@ -2514,6 +2514,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880902451570996623, guid: 2c6136eac1c27bd4f9cd8156a36eb631, type: 3}
+      propertyPath: leadboardScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880902451570996623, guid: 2c6136eac1c27bd4f9cd8156a36eb631, type: 3}
       propertyPath: highScores.Array.data[0]
       value: 
       objectReference: {fileID: 1913110781}
