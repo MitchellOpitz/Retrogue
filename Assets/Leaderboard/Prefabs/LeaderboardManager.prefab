@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eff045dce873454c9cdc58dceb6df6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadboardScene: 1
+  leadboardScene: 0
   highScores:
   - {fileID: 0}
   - {fileID: 0}

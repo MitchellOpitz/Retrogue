@@ -44,3 +44,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9612fd5e16851d14d902e53a7b7f5709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTypePropertiesList:
+  - enemyType: 0
+    enemyPrefab: {fileID: 4542503766583391398, guid: 967016e055a48f346940dcbdfa776c40, type: 3}
+    baseSpawnRate: 1
+    spawnMultiplier: 0
+    baseScore: 10
+    scoreMultiplier: 1
+    baseXP: 10
+    xpMultiplier: 1
+    damageMultiplier: 0
+    moveSpeedMultiplier: 0
+    healthMultiplier: 0
+    isUnlocked: 1
+    damageMultiplierRank: 0
+    moveSpeedMultiplierRank: 0
+    spawnRateMultiplierRank: 0
+    healthMultiplierRank: 0
+    movementPattern: Moves horizontally and vertically in a straight line.
+  - enemyType: 1
+    enemyPrefab: {fileID: 4542503766583391398, guid: 836122c2b22e519468e67f581134c042, type: 3}
+    baseSpawnRate: 3
+    spawnMultiplier: 0
+    baseScore: 25
+    scoreMultiplier: 1
+    baseXP: 10
+    xpMultiplier: 1
+    damageMultiplier: 0
+    moveSpeedMultiplier: 0
+    healthMultiplier: 0
+    isUnlocked: 0
+    damageMultiplierRank: 0
+    moveSpeedMultiplierRank: 0
+    spawnRateMultiplierRank: 0
+    healthMultiplierRank: 0
+    movementPattern: Moves horizontally and vertically in a wave pattern.
+  - enemyType: 2
+    enemyPrefab: {fileID: 4542503766583391398, guid: 0f6534aea4d55934591d6860e9a55d0a, type: 3}
+    baseSpawnRate: 5
+    spawnMultiplier: 0
+    baseScore: 100
+    scoreMultiplier: 1
+    baseXP: 10
+    xpMultiplier: 1
+    damageMultiplier: 0
+    moveSpeedMultiplier: 0
+    healthMultiplier: 0
+    isUnlocked: 0
+    damageMultiplierRank: 0
+    moveSpeedMultiplierRank: 0
+    spawnRateMultiplierRank: 0
+    healthMultiplierRank: 0
+    movementPattern: Constantly chases the player.
+  - enemyType: 3
+    enemyPrefab: {fileID: 4542503766583391398, guid: ef50cc2dcee6b13498b966fda0186e35, type: 3}
+    baseSpawnRate: 3
+    spawnMultiplier: 0
+    baseScore: 75
+    scoreMultiplier: 1
+    baseXP: 10
+    xpMultiplier: 1
+    damageMultiplier: 0
+    moveSpeedMultiplier: 0
+    healthMultiplier: 0
+    isUnlocked: 0
+    damageMultiplierRank: 0
+    moveSpeedMultiplierRank: 0
+    spawnRateMultiplierRank: 0
+    healthMultiplierRank: 0
+    movementPattern: Moves in a straight line diagonally.
