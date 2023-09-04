@@ -80,13 +80,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private bool isTransitioning = false; // Flag to track if audio transition is in progress
+
     public void TransitionToAudioTrack(int trackIndex)
     {
-        StartCoroutine(FadeOutAndChangeTrack(trackIndex));
+        if (!isTransitioning)
+        {
+            StartCoroutine(FadeOutAndChangeTrack(trackIndex));
+        }
     }
 
     private System.Collections.IEnumerator FadeOutAndChangeTrack(int newTrackIndex)
     {
+        isTransitioning = true; // Set the flag to indicate a transition is in progress
+
         float fadeDuration = 2.0f; // Duration of fade-out
         float timer = 0f;
         float startVolume = sounds[currentAudioTrackIndex].source.volume;
@@ -97,7 +104,7 @@ public class AudioManager : MonoBehaviour
             float currentVolume = Mathf.Lerp(startVolume, 0f, normalizedTime);
             sounds[currentAudioTrackIndex].source.volume = currentVolume;
 
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime; // Use unscaledDeltaTime for time-independent fading
             yield return null;
         }
 
@@ -123,7 +130,7 @@ public class AudioManager : MonoBehaviour
             float currentVolume = Mathf.Lerp(0f, startVolume, normalizedTime);
             sounds[currentAudioTrackIndex].source.volume = currentVolume;
 
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime; // Use unscaledDeltaTime for time-independent fading
             yield return null;
         }
 
@@ -132,6 +139,8 @@ public class AudioManager : MonoBehaviour
         // Update the dropdown value to reflect the selected track
         dropdown = FindObjectOfType<TMP_Dropdown>();
         dropdown.value = currentAudioTrackIndex;
+
+        isTransitioning = false; // Reset the transition flag
 
         // Save the current audio track preference
         PlayerPrefs.SetInt("CurrentAudioTrackIndex", currentAudioTrackIndex);

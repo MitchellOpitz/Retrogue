@@ -10,7 +10,7 @@ public class HueShiftManager : MonoBehaviour
 
     private const string HueShiftPlayerPrefKey = "HueShiftPreference";
 
-    private void Start()
+    private void Awake()
     {
         // Get the Color Grading layer from the Post-processing volume
         if (colorGradingVolume != null && colorGradingVolume.profile.TryGetSettings<ColorGrading>(out colorGradingLayer))
@@ -29,7 +29,7 @@ public class HueShiftManager : MonoBehaviour
         // Update the Hue Shift value based on the slider's value (mapped to -180 to 180 range)
         if (colorGradingLayer != null)
         {
-            float hueShiftValue = Mathf.Lerp(-180f, 180f, hueShiftSlider.value);
+            float hueShiftValue = hueShiftSlider.value;
             colorGradingLayer.hueShift.value = hueShiftValue;
 
             // Save the Hue Shift preference to PlayerPrefs

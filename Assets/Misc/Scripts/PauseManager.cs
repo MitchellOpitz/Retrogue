@@ -1,8 +1,14 @@
 using UnityEngine;
 
-public class PauseToggle : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+
+    private void Start()
+    {
+        pauseMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
 
     private void Update()
     {
