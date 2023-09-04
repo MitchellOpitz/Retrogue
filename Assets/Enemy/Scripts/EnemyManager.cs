@@ -145,6 +145,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
             properties.spawnMultiplier += 0.1f;
+            properties.spawnRateMultiplierRank++;
         }
         else
         {
@@ -172,6 +173,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
             properties.moveSpeedMultiplier += 0.1f;
+            properties.moveSpeedMultiplierRank++;
         }
         else
         {
@@ -198,6 +200,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
             properties.damageMultiplier += 0.1f;
+            properties.damageMultiplierRank++;
         }
         else
         {
@@ -224,6 +227,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
             properties.healthMultiplier += 0.1f;
+            properties.healthMultiplierRank++;
         }
         else
         {
@@ -241,6 +245,76 @@ public class EnemyManager : MonoBehaviour
         {
             Debug.LogWarning("EnemyType not found in dictionary!");
             return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public int GetDamageMultiplierRank(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.damageMultiplierRank;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public int GetMoveSpeedMultiplierRank(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.moveSpeedMultiplierRank;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public int GetSpawnRateMultiplierRank(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.spawnRateMultiplierRank;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public int GetHealthMultiplierRank(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.healthMultiplierRank; ;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return 0;
+            // Handle this case as needed (e.g., show an error message)
+        }
+    }
+
+    public string GetMovementPattern(EnemyType enemyType)
+    {
+        if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
+        {
+            return properties.movementPattern; ;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyType not found in dictionary!");
+            return "";
             // Handle this case as needed (e.g., show an error message)
         }
     }

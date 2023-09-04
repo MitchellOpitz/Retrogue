@@ -45,7 +45,7 @@ public class HealthPenalty : Penalty
         UpdateDescription();
 
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetHealthMultiplier(enemyType);
+        int currentRank = enemyManager.GetHealthMultiplierRank(enemyType);
         return currentRank >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
@@ -70,7 +70,7 @@ public class HealthPenalty : Penalty
         {
             needsUnlock = true;
             name = "Unlock " + enemyType;
-            description = "Causes a new enemy type to spawn.";
+            description = "Causes a new enemy type to spawn.\n" + enemyManager.GetMovementPattern(enemyType);
             return false;
         }
 

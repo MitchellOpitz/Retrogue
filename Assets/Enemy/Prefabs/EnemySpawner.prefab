@@ -44,6 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafbe4ec22e3aa44b8cd334309ed6451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTypes: 0000000001000000
-  TypeAPrefab: {fileID: 4542503766583391398, guid: 967016e055a48f346940dcbdfa776c40, type: 3}
-  TypeBPrefab: {fileID: 4542503766583391398, guid: 836122c2b22e519468e67f581134c042, type: 3}
+  enemyTypes: 00000000

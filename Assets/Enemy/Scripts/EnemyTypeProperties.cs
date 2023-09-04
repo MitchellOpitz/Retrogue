@@ -20,4 +20,11 @@ public class EnemyTypeProperties
     public float healthMultiplier;
 
     public bool isUnlocked;
+
+    public int damageMultiplierRank;
+    public int moveSpeedMultiplierRank;
+    public int spawnRateMultiplierRank;
+    public int healthMultiplierRank;
+
+    public string movementPattern;
 }

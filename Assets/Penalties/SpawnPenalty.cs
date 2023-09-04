@@ -44,8 +44,8 @@ public class SpawnPenalty : Penalty
         UpdateDescription();
 
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-        float currentRank = enemyManager.GetSpawnRate(enemyType);
-        return currentRank >= 1; // Assuming maxTier is a variable defined in your UpgradeManager
+        int currentRank = enemyManager.GetSpawnRateMultiplierRank(enemyType);
+        return currentRank >= maxTier; // Assuming maxTier is a variable defined in your UpgradeManager
     }
 
     private void UpdateDescription()
@@ -69,7 +69,7 @@ public class SpawnPenalty : Penalty
         {
             needsUnlock = true;
             name = "Unlock " + enemyType;
-            description = "Causes a new enemy type to spawn.";
+            description = "Causes a new enemy type to spawn.\n" + enemyManager.GetMovementPattern(enemyType);
             return false;
         }
 

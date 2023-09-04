@@ -13,12 +13,14 @@ public class LevelUpManager : MonoBehaviour
     private EnemyManager enemyManager;
     private UpgradeManager upgradeManager;
     private PenaltyManager penaltyManager;
+    private GameObject player;
 
     private void Start()
     {
         enemyManager = FindObjectOfType<EnemyManager>();
         upgradeManager = FindObjectOfType<UpgradeManager>();
         penaltyManager = FindObjectOfType<PenaltyManager>();
+        player = FindObjectOfType<PlayerManager>().gameObject;
     }
 
     public void LevelUp()
@@ -26,6 +28,8 @@ public class LevelUpManager : MonoBehaviour
         enemyManager.DestroyAllEnemies();
 
         Bullet[] bullets = FindObjectsOfType<Bullet>();
+        player.GetComponent<PlayerShoot>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false;
         foreach (Bullet bullet in bullets)
         {
             bullet.DestroyBullet();
@@ -98,6 +102,8 @@ public class LevelUpManager : MonoBehaviour
         {
             penaltyManager.TogglePanels(false);
             FindObjectOfType<CountdownManager>().StartCountdown();
+            player.GetComponent<PlayerShoot>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
         }
     }
 }
