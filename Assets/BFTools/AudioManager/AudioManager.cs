@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        /*
         // Checks if an instance of the AudioManager already exists in a scene.
         // Used when transitioning between scenes to avoid restarting music.
         if (instance == null)
@@ -25,6 +26,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        */
 
         // Attaches AudioSource component from each sound to the AudioManager game object.
         foreach (Sound sound in sounds)
@@ -110,7 +112,7 @@ public class AudioManager : MonoBehaviour
     {
         float fadeDuration = 2.0f; // Duration of fade-in
         float timer = 0f;
-        float startVolume = sounds[currentAudioTrackIndex].source.volume;
+        float startVolume = sounds[currentAudioTrackIndex].source.volume * musicVolumeSlider.value;
 
         sounds[currentAudioTrackIndex].source.volume = 0f;
         sounds[currentAudioTrackIndex].source.Play();

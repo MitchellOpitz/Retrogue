@@ -20,6 +20,7 @@ public class SceneManagement : MonoBehaviour
 
     public void LoadSceneByName(string sceneName)
     {
+        Time.timeScale = 1;
         fader.FadeOut();
         StartCoroutine(LoadSceneWithDelay(sceneName));
     }
