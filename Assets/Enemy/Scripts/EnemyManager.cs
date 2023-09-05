@@ -144,7 +144,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.spawnMultiplier += 0.1f;
+            properties.spawnMultiplier += 0.25f;
             properties.spawnRateMultiplierRank++;
         }
         else
