@@ -165,3 +165,4 @@ MonoBehaviour:
   baseMaxHealth: 25
   bufferDistance: 10
   moveSpeed: 7
+  deathParticlePrefab: {fileID: 8190045696725995662, guid: 99de06ee3f9b1754ca52dd073a4b90be, type: 3}

@@ -165,5 +165,6 @@ MonoBehaviour:
   baseMaxHealth: 40
   bufferDistance: 10
   moveSpeed: 6
+  deathParticlePrefab: {fileID: 1300392367923179526, guid: 661722fb074bd3b4eb142bf58a7b4ea1, type: 3}
   sineFrequency: 3
   sineAmplitude: 0.1

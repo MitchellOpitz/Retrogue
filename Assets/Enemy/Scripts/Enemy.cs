@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public int baseMaxHealth = 100; // Maximum health of the enemy
     public float bufferDistance = 5f; // Set the buffer distance
     public float moveSpeed = 5f; // Movement speed of the enemy
+    public GameObject deathParticlePrefab;
 
     protected int currentHealth;   // Current health of the enemy
     protected int currentMaxHealth;
@@ -55,6 +56,12 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        // Instantiate the particle effect at the enemy's position
+        if (deathParticlePrefab != null)
+        {
+            Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        }
+
         // Perform death behavior based on enemyType (e.g., play death animation, drop items, etc.)
         scoreManager.UpdateScore(enemyType);
         playerExp.GainXP(enemyType);
