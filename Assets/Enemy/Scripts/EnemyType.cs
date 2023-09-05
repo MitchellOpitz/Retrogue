@@ -1,7 +1,7 @@
 public enum EnemyType
 {
-    TypeA,
-    TypeB,
-    TypeC,
-    TypeD
+    Straights,
+    Wavers,
+    Chasers,
+    Diags
 }

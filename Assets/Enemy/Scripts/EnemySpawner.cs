@@ -57,16 +57,16 @@ public class EnemySpawner : MonoBehaviour
 
             switch (enemyType)
             {
-                case EnemyType.TypeA:
+                case EnemyType.Straights:
                     enemyComponent = enemyObject.GetComponent<EnemyTypeA>();
                     break;
-                case EnemyType.TypeB:
+                case EnemyType.Wavers:
                     enemyComponent = enemyObject.GetComponent<EnemyTypeB>();
                     break;
-                case EnemyType.TypeC:
+                case EnemyType.Chasers:
                     enemyComponent = enemyObject.GetComponent<EnemyTypeC>();
                     break;
-                case EnemyType.TypeD:
+                case EnemyType.Diags:
                     enemyComponent = enemyObject.GetComponent<EnemyTypeD>();
                     break;
                 // Add cases for other enemy types as needed

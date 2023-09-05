@@ -46,13 +46,13 @@ public class EnemyManager : MonoBehaviour
         {
             switch (enemyType)
             {
-                case EnemyType.TypeA:
+                case EnemyType.Straights:
                     return properties.enemyPrefab; // Return the TypeA prefab
-                case EnemyType.TypeB:
+                case EnemyType.Wavers:
                     return properties.enemyPrefab; // Return the TypeB prefab
-                case EnemyType.TypeC:
+                case EnemyType.Chasers:
                     return properties.enemyPrefab; // Return the TypeC prefab
-                case EnemyType.TypeD:
+                case EnemyType.Diags:
                     return properties.enemyPrefab; // Return the TypeD prefab
                 // Add cases for other enemy types as needed
                 default:
