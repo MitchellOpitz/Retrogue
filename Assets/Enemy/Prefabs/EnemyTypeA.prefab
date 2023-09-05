@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  baseMaxHealth: 100
+  baseMaxHealth: 25
   bufferDistance: 10
   moveSpeed: 5
