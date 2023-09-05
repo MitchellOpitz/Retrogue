@@ -172,7 +172,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.moveSpeedMultiplier += 0.1f;
+            properties.moveSpeedMultiplier += 0.25f;
             properties.moveSpeedMultiplierRank++;
         }
         else
@@ -199,7 +199,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.damageMultiplier += 0.1f;
+            properties.damageMultiplier += 0.25f;
             properties.damageMultiplierRank++;
         }
         else
@@ -226,7 +226,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.healthMultiplier += 0.1f;
+            properties.healthMultiplier += 0.25f;
             properties.healthMultiplierRank++;
         }
         else
