@@ -642,9 +642,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1719294804}
     - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 38461e8c270c0b34590fcf8aaa7eda8a, type: 3}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0fe3e6e821200b48947740630c1339a, type: 3}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[5].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[0].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[1].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[2].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[3].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535422664545585487, guid: 51bd6380535a104478cc788fe6dc70d5, type: 3}
+      propertyPath: sounds.Array.data[4].isMusic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7118,6 +7162,10 @@ PrefabInstance:
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 453779723}
+    - target: {fileID: 2595990643641256794, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
+      propertyPath: baseShootSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2629352740973198061, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1

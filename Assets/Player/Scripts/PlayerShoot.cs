@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour
 
     public float shotSpeedMultiplier = 0;
     private float shootInterval;
+    private AudioManager audioManager;
 
     private bool canShoot = true;
 
@@ -19,6 +20,7 @@ public class PlayerShoot : MonoBehaviour
         shootInterval = baseShootSpeed;
         shotSpeedMultiplier = 0;
         multishot = 1;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -57,6 +59,8 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
         muzzleFlash.ShowMuzzleFlash();
+        audioManager.PlaySound("Shot");
+
         // Calculate the total spread angle
         float angleBetweenShots = 20f;
         float totalSpreadAngle = angleBetweenShots * (multishot - 1); // Adjust this angle as needed
