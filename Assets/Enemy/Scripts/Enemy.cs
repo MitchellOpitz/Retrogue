@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     private ScoreManager scoreManager;
     protected EnemyManager enemyManager;
     private PlayerExp playerExp;
+    private AudioManager audioManager;
     protected PlayAreaClamp playAreaClamp; // Reference to the PlayAreaClamp script
     protected SpawnDirection spawnDirection;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         playerExp = FindAnyObjectByType<PlayerExp>();
         enemyManager = FindAnyObjectByType<EnemyManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -56,6 +58,7 @@ public class Enemy : MonoBehaviour
         // Perform death behavior based on enemyType (e.g., play death animation, drop items, etc.)
         scoreManager.UpdateScore(enemyType);
         playerExp.GainXP(enemyType);
+        audioManager.PlaySound("Explosion");
         Destroy(gameObject); // Destroy the enemy GameObject
     }
 
