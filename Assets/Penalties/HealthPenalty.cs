@@ -53,7 +53,7 @@ public class HealthPenalty : Penalty
     {
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         float currentRank = enemyManager.GetHealthMultiplier(enemyType);
-        description = "Increases " + enemyType + " base health by " + ((currentRank + 0.1f) * 100) + "%.";
+        description = "Increases " + enemyType + " base health by " + ((currentRank + 0.25f) * 100) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()

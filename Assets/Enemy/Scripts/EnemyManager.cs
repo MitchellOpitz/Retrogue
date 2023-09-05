@@ -46,13 +46,13 @@ public class EnemyManager : MonoBehaviour
         {
             switch (enemyType)
             {
-                case EnemyType.TypeA:
+                case EnemyType.Straights:
                     return properties.enemyPrefab; // Return the TypeA prefab
-                case EnemyType.TypeB:
+                case EnemyType.Wavers:
                     return properties.enemyPrefab; // Return the TypeB prefab
-                case EnemyType.TypeC:
+                case EnemyType.Chasers:
                     return properties.enemyPrefab; // Return the TypeC prefab
-                case EnemyType.TypeD:
+                case EnemyType.Diags:
                     return properties.enemyPrefab; // Return the TypeD prefab
                 // Add cases for other enemy types as needed
                 default:
@@ -144,7 +144,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.spawnMultiplier += 0.1f;
+            properties.spawnMultiplier += 0.25f;
             properties.spawnRateMultiplierRank++;
         }
         else
@@ -172,7 +172,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.moveSpeedMultiplier += 0.1f;
+            properties.moveSpeedMultiplier += 0.25f;
             properties.moveSpeedMultiplierRank++;
         }
         else
@@ -199,7 +199,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.damageMultiplier += 0.1f;
+            properties.damageMultiplier += 0.25f;
             properties.damageMultiplierRank++;
         }
         else
@@ -226,7 +226,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyTypePropertiesDict.TryGetValue(enemyType, out EnemyTypeProperties properties))
         {
-            properties.healthMultiplier += 0.1f;
+            properties.healthMultiplier += 0.25f;
             properties.healthMultiplierRank++;
         }
         else

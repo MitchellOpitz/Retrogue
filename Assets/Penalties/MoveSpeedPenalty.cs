@@ -53,7 +53,7 @@ public class MoveSpeedPenalty : Penalty
     {
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         float currentRank = enemyManager.GetMoveSpeedMultiplier(enemyType);
-        description = "Increases " + enemyType + " base move speed by " + ((currentRank + 0.1f) * 100) + "%.";
+        description = "Increases " + enemyType + " base move speed by " + ((currentRank + 0.25f) * 100) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()

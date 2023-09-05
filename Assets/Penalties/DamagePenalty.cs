@@ -53,7 +53,7 @@ public class DamagePenalty : Penalty
     {
         EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         float currentRank = enemyManager.GetDamageMultiplier(enemyType);
-        description = "Increases " + enemyType + " base damage by " + ((currentRank + 0.1f) * 100) + "%.";
+        description = "Increases " + enemyType + " base damage by " + ((currentRank + 0.25f) * 100) + "%.";
     }
 
     private EnemyType GetRandomEnemyType()

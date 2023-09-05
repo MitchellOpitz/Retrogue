@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
-  baseMaxHealth: 100
+  baseMaxHealth: 50
   bufferDistance: 5
-  moveSpeed: 5
+  moveSpeed: 7
+  deathParticlePrefab: {fileID: 2055855745615020864, guid: 0380b79f7128f804486c4fa2f142480a, type: 3}
