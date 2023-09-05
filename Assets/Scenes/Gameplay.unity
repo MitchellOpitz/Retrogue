@@ -6340,6 +6340,26 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 4249681159660774595, guid: 9991b53bb80d8ee44b3a81827f77c699, type: 3}
+      propertyPath: damageUpgrade.Array.data[0].maxTier
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249681159660774595, guid: 9991b53bb80d8ee44b3a81827f77c699, type: 3}
+      propertyPath: healthUpgrade.Array.data[0].maxTier
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249681159660774595, guid: 9991b53bb80d8ee44b3a81827f77c699, type: 3}
+      propertyPath: fireSpeedUpgrade.Array.data[0].maxTier
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249681159660774595, guid: 9991b53bb80d8ee44b3a81827f77c699, type: 3}
+      propertyPath: moveSpeedUpgrade.Array.data[0].maxTier
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249681159660774595, guid: 9991b53bb80d8ee44b3a81827f77c699, type: 3}
+      propertyPath: multishotUpgrade.Array.data[0].maxTier
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6950,11 +6970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[0].baseScore
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[1].baseScore
-      value: 30
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[1].enemyType
@@ -6962,7 +6982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[2].baseScore
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[2].enemyType
@@ -6970,7 +6990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[3].baseScore
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2189540070653011000, guid: 0390aa6c91d35b7489dc2096e24dc26b, type: 3}
       propertyPath: enemyTypePropertiesList.Array.data[3].enemyType
@@ -7256,7 +7276,7 @@ PrefabInstance:
       objectReference: {fileID: 1390844951}
     - target: {fileID: 7179691398405532661, guid: 4f969ed147354c843ad7cf50d3995b97, type: 3}
       propertyPath: baseXPToLevel
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
