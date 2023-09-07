@@ -1,8 +1,8 @@
 # Retrogue
 
-![Gameplay Screen]([https://img.itch.zone/aW1hZ2UvMTk4OTQ1Ny8xMTg1OTUyMS5wbmc=/347x500/gyTakS.png](https://img.itch.zone/aW1hZ2UvMjI0MDI1MC8xMzMzMTAwNy5wbmc=/original/Z2EExm.png))
+![Gameplay Screen](https://img.itch.zone/aW1hZ2UvMjI0MDI1MC8xMzMzMTAwNy5wbmc=/347x500/ViEUpk.png)
 
-Blast your way to the top of the leaderboard in Retrogue! This retro-inspired top-down shooter challenges you to destroy enemies, gain points, and level up. At each level, you choose from one of three random upgrades for yourself, but be careful - you also have to choose an upgrade for your enemies! Can you outshoot and outsmart your foes to claim the top spot?
+Blast your way to the top of the leaderboard in Retrogue! This retro-inspiredop-down shooter challenges you to destroy enemies, gain points, and level up. At each level, you choose from one of three random upgrades for yourself, but be careful - you also have to choose an upgrade for your enemies! Can you outshoot and outsmart your foes to claim the top spot?
 
 This game was made over 5 days for the [$5000 Ultimate Mini Game Challenge By BIGA](https://itch.io/jam/biga-ultimate-mini-game-challange) game jam.
 
